@@ -40,7 +40,7 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
     
     $qresult = mysqli_query($conn, $testSql);
     
-    while ($row = mysqli_fetch_assoc($res))
+    while ($row = mysqli_fetch_assoc($qresult))
     {
         $cells[] = $row;
     	echo var_dump($row);
