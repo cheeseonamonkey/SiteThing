@@ -52,10 +52,9 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
 	}
     
 }
-
 catch (PDOException $e) {
     
-    print("Error connecting to SQL Server.");
+    echo "Error - " . $e; 
     
     die(print_r($e));
 }
