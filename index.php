@@ -41,8 +41,8 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
     echo '<br><br>';
     echo 'test query:<br>';
     
-    $testSql = "SELECT TOP (20) * FROM SalesLT.Customer;";
-    
+    $testSql = "SELECT * FROM SalesLT.Customer;";
+    echo $testSql .  " - ";
     $qresult = mysqli_query($conn, $testSql);
     
     while ($row = mysqli_fetch_assoc($qresult))
@@ -52,13 +52,6 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
     }
     
     
-while($row = mysql_fetch_array($qresult))
- {
-echo $row['id']; // Print a single column data echo
-echo " - ";
-print_r($row); // Print the entire row data
- }
-
     foreach($cells as $cell)
 	{
 		echo $cell . " - ";
