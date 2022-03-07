@@ -22,14 +22,17 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
     
     while ($row = mysqli_fetch_assoc($res))
     {
-        echo $row['FirstName'];
-        echo '<br>';
+        $cells[] = $row;
     }
     
     
-    
+    foreach($cells as $cell)
+	{
+		echo $cell . "  ";
+	}
     
 }
+
 catch (PDOException $e) {
     
     print("Error connecting to SQL Server.");
