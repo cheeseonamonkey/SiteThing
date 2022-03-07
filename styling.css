@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+
+
+<style>
+#navList { width: 200px; }
+
+#navList ul
+{
+margin-left: 0;
+padding-left: 0;
+list-style-type: none;
+font-family: Arial, Helvetica, sans-serif;
+
+}
+#navList a
+{
+{
+display: block;
+padding: 3px;
+width: 160px;
+background:url(img/normal.png) repeat-x #dcdcdc;
+border-bottom: 1px solid #606061;
+}
+#navList a:link, #navlist a:visited
+{
+color: #9c9d9d;
+text-decoration: none;
+}
+#navList a:hover
+{
+ background:url(img/hover.png) repeat-x #147bba;
+color: #fff;
+}
+</style>
+<body>
+<div id="navcontainer">
+ <ul id="navlist">
+ <li id="active"><a href="#" id="current">Home</a></li>
+ <li><a href="#">About</a></li>
+ <li><a href="#">Contact</a></li>
+ <li><a href="#">Services</a></li>
+ <li><a href="#">Portfolio</a></li>
+ </ul>
+ </div>
+ 
+The content of the body element is displayed in your browser.
+</body>
+
+</html>
