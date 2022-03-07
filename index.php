@@ -15,14 +15,20 @@ catch (PDOException $e) {
 //$serverName = "tcp:site-thing-sql-server.database.windows.net,1433";
 //$conn = sqlsrv_connect($serverName, $connectionInfo);
 
-
-$c = mysqli_query("SELECT TOP (10) * FROM SalesLT.Customer");
-
-while ($row = mysqli_fetch_assoc($c))
+try
 {
-    echo $row[FirstName] . " - ";
-}
+    
+    $c = mysqli_query("SELECT TOP (10) * FROM SalesLT.Customer");
 
+    while ($row = mysqli_fetch_assoc($c))
+    {
+        echo $row[FirstName] . " - ";
+    }
+}catch (exception $e)
+{
+    echo $e->getMessage();
+    
+}
 
 ?>
  
