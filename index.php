@@ -52,6 +52,13 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
     }
     
     
+while($row = mysql_fetch_array($qresult))
+ {
+echo $row['id']; // Print a single column data echo
+echo " - ";
+print_r($row); // Print the entire row data
+ }
+
     foreach($cells as $cell)
 	{
 		echo $cell . " - ";
