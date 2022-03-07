@@ -34,6 +34,8 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
     echo var_dump($connectionInfo);
     echo '<br>server name:<br>';
     echo $serverName;
+    echo '<br>conn<br>';
+    echo $conn;
     echo '<br><br>';
     echo 'test query:<br>';
     
