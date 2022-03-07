@@ -30,6 +30,8 @@ $connectionInfo = array("UID" => "ffatty", "pwd" => "password12345$", "Database"
 $serverName = "tcp:site-thing-sql-server.database.windows.net,1433";
 $conn = sqlsrv_connect($serverName, $connectionInfo);
     
+	echo '<br>errors:<br>'
+    echo mysqli_error();
     echo '<br>connection info:<br>';
     echo var_dump($connectionInfo);
     echo '<br>server name:<br>';
