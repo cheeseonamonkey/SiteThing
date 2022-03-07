@@ -2,6 +2,7 @@
 
 
 try {
+    
     $conn = new PDO("sqlsrv:server = tcp:site-thing-sql-server.database.windows.net,1433; Database = SiteThingDB", "ffatty", "password12345$");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
@@ -12,22 +13,25 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
     
     echo $connectionInfo;
     echo $serverName;
+    echo '<br><br>'
     
     $testSql = "SELECT TOP (20) * FROM SalesLT.Customer;";
     
     $qresult = mysqli_query($conn, $testSql);
     
-while ($row = mysqli_fetch_assoc($res))
-{
-    echo $row['FirstName'];
-}
+    while ($row = mysqli_fetch_assoc($res))
+    {
+        echo $row['FirstName'];
+    }
     
     
     
     
 }
 catch (PDOException $e) {
+    
     print("Error connecting to SQL Server.");
+    
     die(print_r($e));
 }
 
