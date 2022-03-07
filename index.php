@@ -12,8 +12,9 @@ $serverName = "tcp:site-thing-sql-server.database.windows.net,1433";
 $conn = sqlsrv_connect($serverName, $connectionInfo);
     
     echo $connectionInfo;
+    echo '<br>';
     echo $serverName;
-    echo '<br><br>'
+    echo '<br><br>';
     
     $testSql = "SELECT TOP (20) * FROM SalesLT.Customer;";
     
@@ -22,6 +23,7 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
     while ($row = mysqli_fetch_assoc($res))
     {
         echo $row['FirstName'];
+        echo '<br>';
     }
     
     
