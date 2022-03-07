@@ -9,15 +9,15 @@ echo "Hello World!";
 
 //$dbc = @ mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
-$con=mysqli_init(); [mysqli_ssl_set($con, NULL, NULL, {ca-cert filename}, NULL, NULL);] mysqli_real_connect($con, {your_host}, {username@servername}, {your_password}, {your_database}, {your_port});
-	
+//$con=mysqli_init(); [mysqli_ssl_set($con, NULL, NULL, {ca-cert filename}, NULL, NULL);] mysqli_real_connect($con, {your_host}, {username@servername}, {your_password}, {your_database}, {your_port});
 
-if(!$con) {
-	echo "not connected - " . mysqli_connect_error(); 
-}else {
-	echo 'connected !?';
-}
-	
+
+//if(!$con) {
+//	echo "not connected - " . mysqli_connect_error(); 
+//}else {
+//	echo 'connected !?';
+//}
+	echo $_ENV["MYSQLCONNSTR_localdb"];
 
 ?>
  
