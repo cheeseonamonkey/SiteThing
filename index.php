@@ -20,7 +20,7 @@ $c = mysqli_query("SELECT TOP (10) * FROM SalesLT.Customer");
 
 while ($row = mysqli_fetch_assoc($c))
 {
-    var_dump($row);
+    echo $row[FirstName] . " - ";
 }
 
 
