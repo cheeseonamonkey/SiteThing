@@ -3,6 +3,20 @@
 	<link rel="stylesheet" href="./styling.css">
 	</head>
 
+	
+	
+	
+	<div id="navList">
+ <ul id="navlist">
+ <li id="active"><a href="#" id="current">Home</a></li>
+ <li><a href="#">About</a></li>
+ <li><a href="#">Contact</a></li>
+ <li><a href="#">Services</a></li>
+ <li><a href="#">Portfolio</a></li>
+ </ul>
+ </div>
+	
+	
 <?php
 
 
