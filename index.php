@@ -19,7 +19,7 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
     
 while ($row = mysqli_fetch_assoc($res))
 {
-    var_dump($row);
+    echo $row['FirstName'];
 }
     
     
