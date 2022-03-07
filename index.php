@@ -10,7 +10,7 @@ catch (PDOException $e) {
     die(print_r($e));
 }
 
-echo 'hello!';
+
 
 // SQL Server Extension Sample Code:
 $connectionInfo$connectionInfo = array("UID" => "ffatty", "pwd" => "password12345$", "Database" => "SiteThingDB", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
