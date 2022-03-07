@@ -26,13 +26,13 @@ border-bottom: 1px solid #606061;
 {
 text-decoration: none;
 	color: #F1FFF1;
-	box-shadow: 1px 1px 10px 2px rgba(13,46,15,0.4);
+	box-shadow: 1px 1px 10px 1.5px rgba(43,51,43,0.4);
 }
 #navList a:hover
 {
  background-color: #E6FFE6;
 color: #F1FFF1;
-	box-shadow: 1.5px 1.5px 10px 2px rgba(13,46,15,0.5);
+	box-shadow: 1.5px 1.5px 13px 1.8px rgba(18,46,19,0.5);
 }
 
  
