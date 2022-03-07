@@ -13,7 +13,12 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
     echo $connectionInfo;
     echo $serverName;
     
+    $testSql = "SELECT TOP (20) * FROM SalesLT.Customer;";
+    $result = mysqli_query($conn, $testSql);
     
+    $row = mysqli_fetch_array($result, MYSQLI_NUM);
+    echo $row[0] . " " .  $row[1] . " " .  $row[2] . " " .   $row[3] 
+        
 }
 catch (PDOException $e) {
     print("Error connecting to SQL Server.");
