@@ -25,13 +25,13 @@ border-bottom: 1px solid #606061;
 #navList a:link, #navlist a:visited
 {
 text-decoration: none;
-	color: #DDD9D4;
+	color: #F1FFF1;
 	box-shadow: 1px 1px 10px 2px rgba(13,46,15,0.4);
 }
 #navList a:hover
 {
- background-color: #356262;
-color: #DDD9D4;
+ background-color: #E6FFE6;
+color: #F1FFF1;
 	box-shadow: 1.5px 1.5px 10px 2px rgba(13,46,15,0.5);
 }
 
