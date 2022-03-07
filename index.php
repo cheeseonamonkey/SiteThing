@@ -35,6 +35,7 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
     echo '<br>server name:<br>';
     echo $serverName;
     echo '<br><br>';
+    echo 'test query:<br>';
     
     $testSql = "SELECT TOP (20) * FROM SalesLT.Customer;";
     
