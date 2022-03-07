@@ -57,6 +57,12 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
 		echo $cell . " - ";
 	}
     
+	
+	
+echo '<br><br>errors:<br>';
+    echo mysqli_error();
+    echo '<br>
+	
 }
 catch (PDOException $e) {
     
