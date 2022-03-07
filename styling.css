@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html>
 
-
-
-<style>
 #navList { width: 200px; }
 
 #navList ul
@@ -33,19 +28,3 @@ text-decoration: none;
  background:url(img/hover.png) repeat-x #147bba;
 color: #fff;
 }
-</style>
-<body>
-<div id="navcontainer">
- <ul id="navlist">
- <li id="active"><a href="#" id="current">Home</a></li>
- <li><a href="#">About</a></li>
- <li><a href="#">Contact</a></li>
- <li><a href="#">Services</a></li>
- <li><a href="#">Portfolio</a></li>
- </ul>
- </div>
- 
-The content of the body element is displayed in your browser.
-</body>
-
-</html>
