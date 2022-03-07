@@ -54,7 +54,7 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
     
     foreach($cells as $cell)
 	{
-		echo $cell . "  ";
+		echo $cell . " - ";
 	}
     
 }
