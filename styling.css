@@ -19,18 +19,18 @@ font-family: Arial, Helvetica, sans-serif;
 display: block;
 padding: 3px;
 width: 160px;
-background:url(img/normal.png) repeat-x #D8D8D8;
+background-color: #D8D8D8;
 border-bottom: 1px solid #606061;
 }
 #navList a:link, #navlist a:visited
 {
-color: #D8D8D8;
 text-decoration: none;
+	color: #DDD9D4;
 }
 #navList a:hover
 {
- background:url(img/hover.png) repeat-x #476669;
-color: #fff;
+ background-color: #476669;
+color: #DDD9D4;
 }
 
  
@@ -61,7 +61,7 @@ body {
 	line-height: 1.75em;
 	font-size: 16px;
 	background-color: #2C2C2E;
-	color: #aaa;
+	color: #DDD9D4;
 }
 
 .simple-container {
@@ -80,7 +80,7 @@ body {
 }
 
 .simple-close {
-	color: white;
+	color: DDD9D4;
 	border-color: white;
 }
 
