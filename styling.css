@@ -18,8 +18,8 @@ font-family: Arial, Helvetica, sans-serif;
 {
 display: block;
 padding: 3px;
-width: 160px;
-background-color: #D8D8D8;
+width: 100%;
+background-color: ##333E3E;
 border-bottom: 1px solid #606061;
 }
 #navList a:link, #navlist a:visited
@@ -29,7 +29,7 @@ text-decoration: none;
 }
 #navList a:hover
 {
- background-color: #476669;
+ background-color: #356262;
 color: #DDD9D4;
 }
 
@@ -120,15 +120,15 @@ hr {
 }
 
 a[href] {
-	color: #1e8ad6;
+	color: #4A9AD3;
 }
 
 a[href]:hover {
-	color: #3ba0e6;
+	color: #1D76B6;
 }
 
 img {
-	max-width: 100%;
+	max-width: 95%;
 }
 
 li {
