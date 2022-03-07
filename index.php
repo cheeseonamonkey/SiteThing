@@ -10,25 +10,21 @@ catch (PDOException $e) {
     die(print_r($e));
 }
 
+echo 'hello!';
+
 // SQL Server Extension Sample Code:
-//$connectionInfo = array("UID" => "ffatty", "pwd" => "password12345$", "Database" => "SiteThingDB", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
-//$serverName = "tcp:site-thing-sql-server.database.windows.net,1433";
-//$conn = sqlsrv_connect($serverName, $connectionInfo);
+$connectionInfo$connectionInfo = array("UID" => "ffatty", "pwd" => "password12345$", "Database" => "SiteThingDB", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
+$serverName = "tcp:site-thing-sql-server.database.windows.net,1433";
+$conn = sqlsrv_connect($serverName, $connectionInfo);
 
-try
-{
-    
-    $c = mysqli_query("SELECT TOP (10) * FROM SalesLT.Customer");
 
-    while ($row = mysqli_fetch_assoc($c))
-    {
-        echo $row[FirstName] . " - ";
-    }
-}catch (exception $e)
-{
-    echo $e->getMessage();
-    
-}
+echo '<br>';
+
+echo '$connectionInfo';
+
+echo '$serverName';
+
+echo '$conn';
 
 ?>
  
