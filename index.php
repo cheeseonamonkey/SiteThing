@@ -1,3 +1,8 @@
+<html>
+<head>
+	<link rel="stylesheet" href="./styling.css">
+	</head>
+
 <?php
 
 
