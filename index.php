@@ -18,13 +18,6 @@ $serverName = "tcp:site-thing-sql-server.database.windows.net,1433";
 $conn = sqlsrv_connect($serverName, $connectionInfo);
 
 
-echo '<br>';
-
-echo '$connectionInfo';
-
-echo '$serverName';
-
-echo '$conn';
 
 ?>
  
