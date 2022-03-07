@@ -13,8 +13,7 @@ $dbc = @ mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 if(!$dbc) {
 	echo "not connected - " . mysqli_connect_error(); 
 }else {
-	echo 'connected !?'
-	
+	echo 'connected !?';
 }
 	
 
