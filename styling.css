@@ -19,7 +19,7 @@ font-family: Arial, Helvetica, sans-serif;
 display: block;
 padding: 3px;
 width: 160px;
-background:url(img/normal.png) repeat-x #dcdcdc;
+background:url(img/normal.png) repeat-x #D8D8D8;
 border-bottom: 1px solid #606061;
 }
 #navList a:link, #navlist a:visited
@@ -29,7 +29,7 @@ text-decoration: none;
 }
 #navList a:hover
 {
- background:url(img/hover.png) repeat-x #147bba;
+ background:url(img/hover.png) repeat-x #476669;
 color: #fff;
 }
 
@@ -44,7 +44,6 @@ DARK MODE:
 
 
 /*
-#197278   blue highlight
 #E4497A   pink highlight
 #C66057   red highlight
 */
