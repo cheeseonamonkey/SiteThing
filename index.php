@@ -41,7 +41,7 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
     echo '<br><br>';
     echo 'test query:<br>';
     
-    $testSql = "SELECT * FROM SalesLT.Customer;";
+    $testSql = "SHOW tables;";
     echo $testSql .  " - ";
     $qresult = mysqli_query($conn, $testSql);
     
