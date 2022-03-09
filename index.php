@@ -22,13 +22,9 @@
 
 try {
     
-    $conn = new PDO("sqlsrv:server = tcp:site-thing-sql-server.database.windows.net,1433; Database = SiteThingDB", "ffatty", "abcd1234$");
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
-    // SQL Server Extension Sample Code:
-$connectionInfo = array("UID" => "ffatty", "pwd" => "abcd1234$", "Database" => "SiteThingDB", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
-$serverName = "tcp:site-thing-sql-server.database.windows.net,1433";
-$conn = sqlsrv_connect($serverName, $connectionInfo);
+   $con = mysqli_init();
+	mysqli_ssl_set($con,NULL,NULL, "{path to CA cert}", NULL, NULL);
+	mysqli_real_connect($conn, "sitething-server.mysql.database.azure.com", "haosfjmept", "abcd123$", "mysql", 3306, MYSQLI_CLIENT_SSL);
     
 	echo '<br>errors:<br>';
     echo mysqli_error();
