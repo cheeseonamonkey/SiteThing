@@ -21,44 +21,22 @@
 
 
 try {
-$con = mysqli_init(); mysqli_ssl_set($con,NULL,NULL, "{path to CA cert}", NULL, NULL); mysqli_real_connect($conn, "sitething-server.mysql.database.azure.com", "vcyswvxapq", "abcd123$", "stdb", 3306, MYSQLI_CLIENT_SSL);
-    
-	echo '<br>errors:<br>';
-    echo mysqli_error();
-    echo '<br>connection info:<br>';
-    echo var_dump(
-	    mysqli_error());
-    echo '<br>server name:<br>';
-    echo $serverName;
-    echo '<br>conn<br>';
-    echo $con;
-    echo '<br><br>';
-    echo 'test query:<br>';
-    
-    $testSql = "SHOW tables;";
-    echo $testSql .  " - ";
-    $qresult = mysqli_query($con, $testSql);
-    
-    while ($row = mysqli_fetch_assoc($qresult))
-    {
-        $cells[] = $row;
-    	echo var_dump($row);
-    }
-    
-    
-    foreach($cells as $cell)
-	{
-		echo $cell . " - ";
-	}
-    
+	
+	DEFINE ('DB_USER','vcyswvxapq');
+	DEFINE ('DB_PASSWORD','abcd123$');
+	DEFINE ('DB_HOST','sitething-server.mysql.database.azure.com');
+	DEFINE ('DB_NAME','stdb');
 	
 	
-echo '<br><br>errors:<br>';
-    echo mysqli_error();
-    echo '<br>';
+	$dbc = @ mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME)
+		or die ('Could not connect to mysql: ' . mysqli_connect_error() );
+	
+	
+	
+	
 	
 }
-catch (PDOException $e) {
+catch (Exception $e) {
     
     echo "Error - " . $e; 
     
