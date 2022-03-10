@@ -2,6 +2,9 @@
 
 try
 {
+    echo ' <br> <br> --- SQL CONNECT NOW --- <br><br>';
+    
+    
 $serverName = "sqlserverass.database.windows.net"; // update me
     $connectionOptions = array(
         "Database" => "stdb", // update me
@@ -19,7 +22,7 @@ $serverName = "sqlserverass.database.windows.net"; // update me
     if ($getResults == FALSE)
         echo (sqlsrv_errors());
     while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
-     echo ($row['CategoryName'] . " " . $row['ProductName'] . PHP_EOL);
+     echo ($row['name'] . " " . $row['id'] . PHP_EOL);
     }
 
     sqlsrv_free_stmt($getResults);
