@@ -2,21 +2,18 @@
 
 try
 {
-    echo ' <br> <br> --- SQL CONNECT NOW --- <br><br>';
+    echo ' <br> <br> --- SQL CONNECTING NOW --- <br><br>';
     
     
 $serverName = "sqlserverass.database.windows.net"; // update me
     $connectionOptions = array(
-        "Database" => "stdb", // update me
-        "Uid" => "banana", // update me
-        "PWD" => "asdf123$" // update me
+        "Database" => "stdb",
+        "Uid" => "banana",
+        "PWD" => "asdf123$"
     );
     //Establishes the connection
     $conn = sqlsrv_connect($serverName, $connectionOptions);
-    $tsql= "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
-         FROM [SalesLT].[ProductCategory] pc
-         JOIN [SalesLT].[Product] p
-         ON pc.productcategoryid = p.productcategoryid";
+    $tsql= "SELECT * FROM [SYSOBJECTS] WHERE xtype = 'U';";
     $getResults= sqlsrv_query($conn, $tsql);
     echo ("Reading data from table" . PHP_EOL);
     if ($getResults == FALSE)
