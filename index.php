@@ -50,23 +50,21 @@ try {
 	
 	echo "<br><br>connecting...<br>";
 	
-	// PHP Data Objects(PDO) Sample Code:
+// PHP Data Objects(PDO) Sample Code:
+// PHP Data Objects(PDO) Sample Code:
 try {
-    $conn = new PDO("sqlsrv:server = tcp:sqlserverass.database.windows.net,1433; Database = stdb", "banana", "asdf123!");
+    $conn = new PDO("sqlsrv:server = tcp:sqlserverass.database.windows.net,1433; Database = stdb", "banana", "asdf123$");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
-catch (PDOException $e) {
+catch (Exception $e) {
     print("Error connecting to SQL Server.");
     die(print_r($e));
 }
 
 // SQL Server Extension Sample Code:
-$connectionInfo = array("UID" => "banana", "pwd" => "asdf123!", "Database" => "stdb", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
-	echo "1";
+$connectionInfo = array("UID" => "banana", "pwd" => "asdf123$", "Database" => "stdb", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
 $serverName = "tcp:sqlserverass.database.windows.net,1433";
-	echo "11";
 $conn = sqlsrv_connect($serverName, $connectionInfo);
-	echo "111";
 	
 	echo "<br><br>connection errors:<br>" . var_dump(mysqli_error());
 	
