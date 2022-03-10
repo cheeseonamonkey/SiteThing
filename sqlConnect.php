@@ -8,10 +8,16 @@ $serverName = "sqlserverass.database.windows.net"; // update me
     );
     //Establishes the connection
     $dbc = sqlsrv_connect($serverName, $connectionOptions);
-    $tsql= "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
-         FROM [SalesLT].[ProductCategory] pc
-         JOIN [SalesLT].[Product] p
-         ON pc.productcategoryid = p.productcategoryid";
+//    $tsql= "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
+//         FROM [SalesLT].[ProductCategory] pc
+//         JOIN [SalesLT].[Product] p
+//        ON pc.productcategoryid = p.productcategoryid";
+
+$tsql = "SELECT * FROM
+	SYSOBJECTS
+	WHERE xtype = 'U';"
+    
+    
     $results= sqlsrv_query($dbc, $tsql);
     echo ("Reading data from table" . PHP_EOL);
     if ($results == FALSE)
