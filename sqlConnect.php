@@ -1,5 +1,8 @@
 <?php
 
+try
+{
+	
 $serverName = "sqlserverass.database.windows.net"; // update me
     $connectionOptions = array(
         "Database" => "stdb", // update me
@@ -13,9 +16,7 @@ $serverName = "sqlserverass.database.windows.net"; // update me
 //         JOIN [SalesLT].[Product] p
 //        ON pc.productcategoryid = p.productcategoryid";
 
-$tsql = "SELECT * FROM
-	SYSOBJECTS
-	WHERE xtype = 'U';"
+$tsql = "SELECT * FROM [SYSOBJECTS] WHERE xtype = 'U';"
     
     
     $results= sqlsrv_query($dbc, $tsql);
@@ -27,6 +28,11 @@ $tsql = "SELECT * FROM
     }
     sqlsrv_free_stmt($results);
 
-
+}catch(Exception $e)
+{
+	echo "Error - " . $e; 
+    
+	die(print_r($e));
+}
 
 ?>
