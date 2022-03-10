@@ -37,11 +37,14 @@ try {
 	echo getcwd();
 	
 	echo "files:<br>";
-	$files = scandir(getcwd());
-	$files = array_diff(scandir($path), array('.', '..'));
-	foreach($files as $file){
-  		echo "<a href='$file'>$file</a>";
-	}
+				//Get a list of file paths using the glob function.
+				$fileList = glob('test/*');
+
+				//Loop through the array that glob returned.
+				foreach($fileList as $filename){
+				   //Simply print them out onto the screen.
+				   echo $filename, '<br>'; 
+				}
 	
 	echo "<br>connecting...<br>";
 	
