@@ -1,13 +1,94 @@
-<?php
-	session_start();
+<html>
+<head>
+	<link rel="stylesheet" href="styling.css">
+	</head>
 
-	$pageTitle = "Home page";
-    
-	require('includes/header.php');
-	echo '<hr><h2>Home page</h2><hr>';
 	
-?>
+	 
+	
+	<div id="navList">
+ <ul id="navlist"> 
+ <li id="active"><a href="#" id="current">Home</a></li>
+ <li><a href="#">About</a></li>
+ <li><a href="#">Contact</a></li>
+ <li><a href="#">Services</a></li>
+ <li><a href="#">Portfolio</a></li>
+ </ul>
+ </div>
+	
+	
+<?php
 
-  </body>
-  
-</html>
+
+try {
+	
+//	DEFINE ('DB_USER','vcyswvxapq');
+//	DEFINE ('DB_PASSWORD','FXDUBP1OQ8K8D2X6$');
+//	DEFINE ('DB_HOST','sitething-server.mysql.database.azure.com');
+//	DEFINE ('DB_NAME','stdb');
+//	
+//	
+//	$dbc = @ mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME)
+//		or die ('Could not connect to mysql: ' . mysqli_connect_error() );
+//	
+
+	
+	
+	echo "this ip: <br> " . $_SERVER['REMOTE_ADDR'] . "<br><br>";
+
+	echo "path:<br>";
+	echo getcwd() . "<br><br>";
+	
+	echo "files:<br>";
+				//Get a list of file paths using the glob function.
+				$fileList = glob(getcwd());
+	
+
+				echo var_dump($fileList);
+	
+	$fileList = glob("C:");
+	
+	echo var_dump($fileList);
+	
+	
+	echo "<br><br>connecting...<br>";
+	
+
+	
+	
+	
+
+	
+	require('includes/sqlConnect.php');
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	echo "<br><br>connection errors:<br>" . var_dump(mysqli_error());
+	
+	
+		
+	
+	
+}
+catch (Exception $e) {
+    
+    echo "Error - " . $e; 
+    
+    die(print_r($e));
+}
+
+
+ 
+
+
+
+
+?>
+ 
+ </html>
