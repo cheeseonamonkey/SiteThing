@@ -13,7 +13,9 @@ $serverName = "sqlserverass.database.windows.net"; // update me
         "PWD" => "asdf123$" // update me
     );
     //Establishes the connection
+	
     $dbc = sqlsrv_connect($serverName, $connectionOptions);
+	
 //    $tsql= "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
 //         FROM [SalesLT].[ProductCategory] pc
 //         JOIN [SalesLT].[Product] p
