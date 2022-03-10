@@ -27,7 +27,7 @@ $con = mysqli_init(); mysqli_ssl_set($con,NULL,NULL, "{path to CA cert}", NULL, 
     echo mysqli_error();
     echo '<br>connection info:<br>';
     echo var_dump(
-	    nectionInfo);
+	    mysqli_error());
     echo '<br>server name:<br>';
     echo $serverName;
     echo '<br>conn<br>';
