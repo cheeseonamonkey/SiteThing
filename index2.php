@@ -59,11 +59,11 @@ try {
 	
 
 	echo '12';
-	require('/sqlConnect.php');
+	include('/sqlConnect.php');
 	echo '13';
-	require('./sqlConnect.php');
+	include('./sqlConnect.php');
 	echo '14';
-	require('sqlConnect.php');
+	include('sqlConnect.php');
 	echo '15';
 	
 	
