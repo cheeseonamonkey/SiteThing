@@ -21,7 +21,7 @@ $serverName = "sqlserverass.database.windows.net"; // update me
     if ($getResults == FALSE)
         echo (sqlsrv_errors());
     while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
-     echo ($row['name'] . " " . $row['id'] . PHP_EOL);
+     echo ($row['username'] . " " . $row['password'] . PHP_EOL);
     }
 
     sqlsrv_free_stmt($getResults);
