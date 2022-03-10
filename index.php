@@ -7,7 +7,7 @@
 	
 	
 	<div id="navList">
- <ul id="navlist">
+ <ul id="navlist"> 
  <li id="active"><a href="#" id="current">Home</a></li>
  <li><a href="#">About</a></li>
  <li><a href="#">Contact</a></li>
