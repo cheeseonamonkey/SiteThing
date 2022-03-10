@@ -20,11 +20,11 @@ $tsql = "SELECT * FROM [SYSOBJECTS] WHERE xtype = 'U';"
     
     
     $results= sqlsrv_query($dbc, $tsql);
-    echo ("Reading data from table" . PHP_EOL);
+    echo ("Reading data from table... " . PHP_EOL);
     if ($results == FALSE)
         echo (sqlsrv_errors());
     while ($row = sqlsrv_fetch_array($results, SQLSRV_FETCH_ASSOC)) {
-     echo ($row['CategoryName'] . " " . $row['ProductName'] . PHP_EOL);
+     echo ($row['name'] . " " . $row['id'] . PHP_EOL);
     }
     sqlsrv_free_stmt($results);
 
