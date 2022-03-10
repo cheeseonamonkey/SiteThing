@@ -44,7 +44,7 @@ try {
 	
 	echo "<br><br>connecting...<br>";
 	
-	$con = mysqli_init(); mysqli_ssl_set($con,NULL,NULL, "./cert", NULL, NULL); mysqli_real_connect($conn, "sitething-server.mysql.database.azure.com", "vcyswvxapq", "FXDUBP1OQ8K8D2X6$", "stdb", 3306, MYSQLI_CLIENT_SSL);
+	$con = mysqli_init(); mysqli_ssl_set($con,NULL,NULL, "/cert/DigiCertGlobalRootCA.crt.pem", NULL, NULL); mysqli_real_connect($conn, "sitething-server.mysql.database.azure.com", "vcyswvxapq", "FXDUBP1OQ8K8D2X6$", "stdb", 3306, MYSQLI_CLIENT_SSL);
 	
 	
 	echo "<br><br>connection errors:<br>" . var_dump(mysqli_error());
