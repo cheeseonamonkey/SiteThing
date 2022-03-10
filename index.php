@@ -44,8 +44,20 @@ try {
 	
 	echo "<br><br>connecting...<br>";
 	
-	$con = mysqli_init(); mysqli_ssl_set($con,NULL,NULL, "/cert/DigiCertGlobalRootCA.crt.pem", NULL, NULL); mysqli_real_connect($conn, "sitething-server.mysql.database.azure.com", "vcyswvxapq", "FXDUBP1OQ8K8D2X6$", "stdb", 3306, MYSQLI_CLIENT_SSL);
-	
+	// PHP Data Objects(PDO) Sample Code:
+try {
+    $conn = new PDO("sqlsrv:server = tcp:sqlserverass.database.windows.net,1433; Database = stdb", "banana", "asdf123!");
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+}
+catch (PDOException $e) {
+    print("Error connecting to SQL Server.");
+    die(print_r($e));
+}
+
+// SQL Server Extension Sample Code:
+$connectionInfo = array("UID" => "banana", "pwd" => "asdf123!", "Database" => "stdb", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
+$serverName = "tcp:sqlserverass.database.windows.net,1433";
+$conn = sqlsrv_connect($serverName, $connectionInfo);
 	
 	echo "<br><br>connection errors:<br>" . var_dump(mysqli_error());
 	
