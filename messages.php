@@ -15,7 +15,7 @@ body {
 	
 	if(isset($_SESSION['username']))
 	{
-		require('mysqliConnect.php');
+		require('includes/sqlConnect.php');
 		$un = $_SESSION['username'];
 	
 		require('includes/messages/messageFunctions.php');
