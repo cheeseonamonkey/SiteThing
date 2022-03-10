@@ -22,10 +22,15 @@ $tsql = "SELECT * FROM [SYSOBJECTS] WHERE xtype = 'U';"
     $results= sqlsrv_query($dbc, $tsql);
     echo ("Reading data from table... " . PHP_EOL);
     if ($results == FALSE)
+    {
+	    echo 'error! ' . PHP_EOL;
         echo (sqlsrv_errors());
-
+    }
+	//more debug stuff:
 	echo var_dump(sqlsrv_fetch_array($results, SQLSRV_FETCH_ASSOC));
 	
+		
+		
 	
     while ($row = sqlsrv_fetch_array($results, SQLSRV_FETCH_ASSOC)) {
      echo ($row['name'] . " " . $row['id'] . PHP_EOL);
