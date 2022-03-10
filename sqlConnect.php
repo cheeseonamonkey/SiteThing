@@ -4,7 +4,8 @@ try
 {
 	
 	
-	echo PHP_EOL . 'DOING CONNECTION (included php)' . PHP_EOL;
+	echo PHP_EOL;
+	echo 'DOING CONNECTION (included php)' . PHP_EOL;
 	
 $serverName = "sqlserverass.database.windows.net"; // update me
     $connectionOptions = array(
