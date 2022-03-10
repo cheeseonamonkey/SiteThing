@@ -62,8 +62,11 @@ catch (PDOException $e) {
 
 // SQL Server Extension Sample Code:
 $connectionInfo = array("UID" => "banana", "pwd" => "asdf123!", "Database" => "stdb", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
+	echo "1";
 $serverName = "tcp:sqlserverass.database.windows.net,1433";
+	echo "11";
 $conn = sqlsrv_connect($serverName, $connectionInfo);
+	echo "111";
 	
 	echo "<br><br>connection errors:<br>" . var_dump(mysqli_error());
 	
