@@ -23,7 +23,7 @@
 try {
 	
 	DEFINE ('DB_USER','vcyswvxapq');
-	DEFINE ('DB_PASSWORD','abcd123$');
+	DEFINE ('DB_PASSWORD','FXDUBP1OQ8K8D2X6$');
 	DEFINE ('DB_HOST','sitething-server.mysql.database.azure.com');
 	DEFINE ('DB_NAME','stdb');
 	
