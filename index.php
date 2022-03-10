@@ -34,21 +34,17 @@ try {
 //	
 
 	echo "path:<br>";
-	echo getcwd();
+	echo getcwd() . <br><br>;
 	
 	echo "files:<br>";
 				//Get a list of file paths using the glob function.
 				$fileList = glob('test/*');
 
-				//Loop through the array that glob returned.
-				foreach($fileList as $filename){
-				   //Simply print them out onto the screen.
-				   echo $filename, '<br>'; 
-				}
+				echo var_dump($fileList);
 	
-	echo "<br>connecting...<br>";
+	echo "<br><br>connecting...<br>";
 	
-	$con = mysqli_init(); mysqli_ssl_set($con,NULL,NULL, "{path to CA cert}", NULL, NULL); mysqli_real_connect($conn, "sitething-server.mysql.database.azure.com", "vcyswvxapq", "FXDUBP1OQ8K8D2X6$", "stdb", 3306, MYSQLI_CLIENT_SSL);
+	$con = mysqli_init(); mysqli_ssl_set($con,NULL,NULL, "./cert", NULL, NULL); mysqli_real_connect($conn, "sitething-server.mysql.database.azure.com", "vcyswvxapq", "FXDUBP1OQ8K8D2X6$", "stdb", 3306, MYSQLI_CLIENT_SSL);
 	
 	
 	echo "<br><br>connection errors:<br>" . var_dump(mysqli_error());
