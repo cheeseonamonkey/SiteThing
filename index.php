@@ -38,7 +38,7 @@ try {
 	
 	echo "files:<br>";
 				//Get a list of file paths using the glob function.
-				$fileList = glob('test/*');
+				$fileList = glob(getcwd());
 
 				echo var_dump($fileList);
 	
