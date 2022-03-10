@@ -13,10 +13,10 @@ $serverName = "sqlserverass.database.windows.net"; // update me
     );
     //Establishes the connection
     $conn = sqlsrv_connect($serverName, $connectionOptions);
-    $tsql= "exec sp_columns accounts;";
+    $tsql= "select * from accounts;";
     echo ("Doing query..." . PHP_EOL);
     $getResults= sqlsrv_query($conn, $tsql);
-    echo var_dump($getResults);
+    echo 'var dump: <br>' . var_dump($getResults) . '<br><br>';
     echo ("Reading data from table..." . PHP_EOL);
     if ($getResults == FALSE)
         echo (sqlsrv_errors());
