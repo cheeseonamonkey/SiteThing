@@ -21,6 +21,7 @@ $serverName = "sqlserverass.database.windows.net"; // update me
     if ($getResults == FALSE)
         echo ( '<br><hr>SQL ERRORS - ' . sqlsrv_errors() . "<hr><br>");
      echo '<br>var dump: <br>' . var_dump(sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) . '<br><br>';
+    echo '<br><br>--- ROW PRINT:<br><br>';
     while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
      echo ( '<br>---' .$row['username'] . " " . $row['password'] . "<br>");
     }
