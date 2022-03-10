@@ -14,14 +14,15 @@ $serverName = "sqlserverass.database.windows.net"; // update me
     //Establishes the connection
     $conn = sqlsrv_connect($serverName, $connectionOptions);
     $tsql= "select * from accounts;";
-    echo ("Doing query..." . PHP_EOL);
+    echo ("Doing query... <br>");
     $getResults= sqlsrv_query($conn, $tsql);
-    echo 'var dump: <br>' . var_dump($getResults) . '<br><br>';
+   
     echo ("Reading data from table..." . PHP_EOL);
     if ($getResults == FALSE)
         echo (sqlsrv_errors());
+     echo '<br>var dump: <br>' . var_dump(sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) . '<br><br>';
     while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
-     echo ($row['username'] . " " . $row['password'] . PHP_EOL);
+     echo ($row['username'] . " " . $row['password'] . "<br>");
     }
 
     sqlsrv_free_stmt($getResults);
