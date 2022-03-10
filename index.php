@@ -34,7 +34,7 @@ try {
 //	
 
 	echo "path:<br>";
-	echo getcwd() . <br><br>;
+	echo getcwd() . "<br><br>";
 	
 	echo "files:<br>";
 				//Get a list of file paths using the glob function.
