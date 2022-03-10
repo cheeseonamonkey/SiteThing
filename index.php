@@ -21,25 +21,23 @@
 
 
 try {
-    
-   $con = mysqli_init();
-	mysqli_ssl_set($con,NULL,NULL, "{path to CA cert}", NULL, NULL);
-	mysqli_real_connect($conn, "sitething-server.mysql.database.azure.com", "haosfjmept", "abcd123$", "mysql", 3306, MYSQLI_CLIENT_SSL);
+$con = mysqli_init(); mysqli_ssl_set($con,NULL,NULL, "{path to CA cert}", NULL, NULL); mysqli_real_connect($conn, "sitething-server.mysql.database.azure.com", "vcyswvxapq", "abcd123$", "stdb", 3306, MYSQLI_CLIENT_SSL);
     
 	echo '<br>errors:<br>';
     echo mysqli_error();
     echo '<br>connection info:<br>';
-    echo var_dump($connectionInfo);
+    echo var_dump(
+	    nectionInfo);
     echo '<br>server name:<br>';
     echo $serverName;
     echo '<br>conn<br>';
-    echo $conn;
+    echo $con;
     echo '<br><br>';
     echo 'test query:<br>';
     
     $testSql = "SHOW tables;";
     echo $testSql .  " - ";
-    $qresult = mysqli_query($conn, $testSql);
+    $qresult = mysqli_query($con, $testSql);
     
     while ($row = mysqli_fetch_assoc($qresult))
     {
