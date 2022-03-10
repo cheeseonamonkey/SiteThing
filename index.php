@@ -22,17 +22,25 @@
 
 try {
 	
-	DEFINE ('DB_USER','vcyswvxapq');
-	DEFINE ('DB_PASSWORD','FXDUBP1OQ8K8D2X6$');
-	DEFINE ('DB_HOST','sitething-server.mysql.database.azure.com');
-	DEFINE ('DB_NAME','stdb');
+//	DEFINE ('DB_USER','vcyswvxapq');
+//	DEFINE ('DB_PASSWORD','FXDUBP1OQ8K8D2X6$');
+//	DEFINE ('DB_HOST','sitething-server.mysql.database.azure.com');
+//	DEFINE ('DB_NAME','stdb');
+//	
+//	
+//	$dbc = @ mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME)
+//		or die ('Could not connect to mysql: ' . mysqli_connect_error() );
+//	
+//	
+
+	
+	$con = mysqli_init(); mysqli_ssl_set($con,NULL,NULL, "{path to CA cert}", NULL, NULL); mysqli_real_connect($conn, "sitething-server.mysql.database.azure.com", "vcyswvxapq", "FXDUBP1OQ8K8D2X6$", "stdb", 3306, MYSQLI_CLIENT_SSL);
 	
 	
-	$dbc = @ mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME)
-		or die ('Could not connect to mysql: ' . mysqli_connect_error() );
+	echo "connection errors:<br>" . var_dump(mysqli_error());
 	
 	
-	
+		
 	
 	
 }
