@@ -31,7 +31,10 @@ try {
 //	$dbc = @ mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME)
 //		or die ('Could not connect to mysql: ' . mysqli_connect_error() );
 //	
-//	echo "this ip: <br> " . $_SERVER['REMOTE_ADDR'] . "<br><br>";
+
+	
+	
+	echo "this ip: <br> " . $_SERVER['REMOTE_ADDR'] . "<br><br>";
 
 	echo "path:<br>";
 	echo getcwd() . "<br><br>";
