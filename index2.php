@@ -59,7 +59,7 @@ try {
 	
 
 	
-	require('sqlConnect.php');
+	require('/sqlConnect.php');
 	
 	
 	
