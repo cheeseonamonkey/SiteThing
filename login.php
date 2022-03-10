@@ -24,7 +24,7 @@
 		if($validated)
 		{
 			
-			require('mysqliConnect.php');
+			require('includes/sqlConnect.php');
 			
 			$un = $_POST['username'];
 			$pw = $_POST['password'];
