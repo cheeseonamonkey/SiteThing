@@ -13,9 +13,11 @@ $serverName = "sqlserverass.database.windows.net"; // update me
     );
     //Establishes the connection
     $conn = sqlsrv_connect($serverName, $connectionOptions);
-    $tsql= "SELECT * FROM [SYSOBJECTS] WHERE xtype = 'U';";
+    $tsql= "exec sp_columns accounts;";
+    echo ("Doing query..." . PHP_EOL);
     $getResults= sqlsrv_query($conn, $tsql);
-    echo ("Reading data from table" . PHP_EOL);
+    echo var_dump($getResults);
+    echo ("Reading data from table..." . PHP_EOL);
     if ($getResults == FALSE)
         echo (sqlsrv_errors());
     while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
