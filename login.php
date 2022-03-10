@@ -36,7 +36,7 @@
 			
 			$q = "SELECT username FROM accounts WHERE username = '$un' AND password = SHA1('$pw')";
 			
-			$r = mysqli_query($dbc, $q);
+			$r = sqlsrv_query($dbc, $q);
 			
 			if (@mysqli_num_rows($r) == 1) //single match found
 			{

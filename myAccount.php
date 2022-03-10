@@ -5,7 +5,7 @@
 	$pageTitle = "My account";
 	
 	require('includes/header.php');
-	require('mysqliConnect.php');
+	require('includes/sqlConnect.php');
 	require('includes/myAccount/myAccountFunctions.php');
 	
 	echo '<hr><h2>My account</h2><hr>';
@@ -19,7 +19,7 @@
 		
 		$q = "select * from accounts WHERE username = '$un'";
 		
-		$rows = mysqli_query($dbc, $q);
+		$rows = sqlsrv_query($dbc, $q);
 		if (mysqli_num_rows($rows) > 0)
 		{
 			

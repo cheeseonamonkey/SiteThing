@@ -23,7 +23,7 @@ LEFT JOIN messageAttachments ON messages.id = messageAttachments.messageId
 WHERE messages.id = $view
 ";
 
-$r = mysqli_query($dbc, $q);
+$r = sqlsrv_query($dbc, $q);
 
 $msg = mysqli_fetch_assoc($r);
 
@@ -54,7 +54,7 @@ if(! $viewed)
 	
 	$q = "UPDATE messages SET viewed = 1 WHERE id = $messageId";
 	
-	$r = @ mysqli_query($dbc, $q);
+	$r = @ sqlsrv_query($dbc, $q);
 	
 	if($r)
 	{}

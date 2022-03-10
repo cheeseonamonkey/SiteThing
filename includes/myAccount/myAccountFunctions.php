@@ -3,7 +3,7 @@
 	function changeBio($dbc, $un)
 	{
 		$q = "SELECT id FROM accounts WHERE username = '" . $un . "'";
-		$rows = mysqli_query($dbc, $q);
+		$rows = sqlsrv_query($dbc, $q);
 		if(mysqli_num_rows($rows) > 0)
 		{
 			$row = mysqli_fetch_assoc($rows);
@@ -17,7 +17,7 @@
 		
 		$q = "UPDATE accounts SET bio = '" . $newBio . "' WHERE id = $uId";
 				
-		$r = mysqli_query($dbc, $q);
+		$r = sqlsrv_query($dbc, $q);
 		
 		if($r)
 		{
@@ -34,7 +34,7 @@
 	function getProfilePictureDir($dbc, $un)
 	{
 		$q = "SELECT id FROM accounts WHERE username = '" . $un . "'";
-		$rows = mysqli_query($dbc, $q);
+		$rows = sqlsrv_query($dbc, $q);
 		if(mysqli_num_rows($rows) > 0)
 		{
 			$row = mysqli_fetch_assoc($rows);
@@ -46,7 +46,7 @@
 	$q = "select * from profilePictures WHERE userId = '$uId'";
 	
 	
-	$rows = mysqli_query($dbc, $q);
+	$rows = sqlsrv_query($dbc, $q);
 	
 	if (mysqli_num_rows($rows) > 0)
 	{
@@ -83,7 +83,7 @@
 		
 		
 		
-		$rows = mysqli_query($dbc, $q);
+		$rows = sqlsrv_query($dbc, $q);
 		$row = mysqli_fetch_assoc($rows);
 		
 		$oldUserPw = $row['password'];
@@ -98,7 +98,7 @@
 				
 				$q = "UPDATE accounts SET password = SHA1('" . $newPw1 . "') WHERE id = $userId";
 				
-				$r = mysqli_query($dbc, $q);
+				$r = sqlsrv_query($dbc, $q);
 				
 				if($r)
 				{
@@ -128,7 +128,7 @@
 	function changeProfilePicture($dbc, $un)
 	{
 		$q = "SELECT id FROM accounts WHERE username = '" . $un . "'";
-		$rows = mysqli_query($dbc, $q);
+		$rows = sqlsrv_query($dbc, $q);
 		if(mysqli_num_rows($rows) == 1)
 		{
 			$row = mysqli_fetch_assoc($rows);
@@ -161,7 +161,7 @@
 					
 					$q = "SELECT id, userId FROM profilePictures WHERE userId = '" . $uId . "'";
 					
-					$rows = mysqli_query($dbc, $q);
+					$rows = sqlsrv_query($dbc, $q);
 					
 					$done = false;
 					
@@ -169,21 +169,21 @@
 					{
 						$q = "INSERT INTO profilePictures (name, dir, size, userId) VALUES ('$fileName', '$targetFilePath' , '$fileSize', '$uId')";
 					
-						$r = mysqli_query($dbc, $q);
+						$r = sqlsrv_query($dbc, $q);
 						$done = true;
 						
 					}else if(mysqli_num_rows($rows) > 0)
 					{
 						$q = "UPDATE profilePicture SET name = '$fileName', dir = '$targetFilePath', size = '$fileSize' WHERE id = '$uId'";
 					
-						$r = mysqli_query($dbc, $q);
+						$r = sqlsrv_query($dbc, $q);
 						$done = true;
 						
 					}
 					/*
 						$q = "select last_insert_id();";
 					
-						$r = mysqli_query($dbc, $q);
+						$r = sqlsrv_query($dbc, $q);
 						
 						$row = mysqli_fetch_assoc($r);
 						echo $row['last_insert_id()'];

@@ -7,14 +7,14 @@ function deleteMessage($dbc, $view)
 	
 	$view = mysqli_real_escape_string($dbc, $view);
 	
-	$r = mysqli_query($dbc, $q);
+	$r = sqlsrv_query($dbc, $q);
 	
 	
 	$q = "DELETE from MESSAGES WHERE id = $view";
 	
 	
 	
-	$r = mysqli_query($dbc, $q);
+	$r = sqlsrv_query($dbc, $q);
 	
 	if(($r))
 	{
@@ -130,7 +130,7 @@ LIMIT " . (($page * 8)-8) . ", " . (($page * 8))
 	$messages = array();
 	
 	
-	$rows = mysqli_query($dbc, $q);
+	$rows = sqlsrv_query($dbc, $q);
 	
 	$numMessages = mysqli_num_rows($rows);
 	$maxPages = $numMessages / 8;
@@ -220,7 +220,7 @@ function sendMessage($dbc, $un)
 					/*	gets last inserted id */
 					$q = "select last_insert_id();";
 				
-					$r = mysqli_query($dbc, $q);
+					$r = sqlsrv_query($dbc, $q);
 					
 					$row = mysqli_fetch_assoc($r);
 					$thisMessageId = $row['last_insert_id()'];
@@ -263,7 +263,7 @@ function sendMessage($dbc, $un)
 						
 						$q = "INSERT INTO messageAttachments (messageId, dir, name, size) VALUES ($thisMessageId, '$targetFilePath', '$fileName', $fileSize)";
 					
-						$r = mysqli_query($dbc, $q);
+						$r = sqlsrv_query($dbc, $q);
 						
 						if($r)
 						{
@@ -308,7 +308,7 @@ function sendMessage($dbc, $un)
 function getUserId($dbc, $un)
 {
 	$q = "SELECT id FROM accounts WHERE username LIKE '" . $un . "'";
-		$rows = mysqli_query($dbc, $q);
+		$rows = sqlsrv_query($dbc, $q);
 		if(mysqli_num_rows($rows) > 0)
 		{
 			$row = mysqli_fetch_assoc($rows);
