@@ -22,13 +22,13 @@ $serverName = "sqlserverass.database.windows.net"; // update me
         echo ( '<br><hr>SQL ERRORS - ' . var_dump(sqlsrv_errors()) . "<hr><br>");
     
     
-    echo '<br><br>query result (before fetch) var dump: <br><br>' . var_dump(sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) . '<br><br>';
+    //echo '<br><br>query result (before fetch) var dump: <br><br>' . var_dump(sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) . '<br><br>';
     echo '<br><br>--- ROW PRINT:<br><br>';
     
     
     
     
-while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) {
+while( $row = sqlsrv_fetch_array( $getResults, SQLSRV_FETCH_ASSOC) ) {
       echo '' . $row['id']." . ".$row['username']."<br>";
 }
 
