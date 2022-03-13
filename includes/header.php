@@ -5,7 +5,8 @@
   <link rel="stylesheet" href="styling.css">
 
   <?php
-  echo "<h2> Something </h2><br><hr>"; 
+  
+  echo '<h2 style="float: left;"> Something </h2>'; 
   
 $_GET   = filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
 $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -13,6 +14,12 @@ $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
   ?>
 
+
+	<h2 class="login">
+		<?php if(isset($_SESSION['username'])) {echo '<a href="logout.php">Logout</a>';} else {echo '<a href="login.php">Login</a>';} ?>
+	</h2>
+
+	<hr style="clear: both; margin-bottom: 10px;">
   
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
  
@@ -122,9 +129,7 @@ body {
       
       <h2 class="title"><b><?php echo $pageTitle; ?></b></h2>
     	
-	<h2 class="login">
-		<?php if(isset($_SESSION['username'])) {echo '<a href="logout.php">Logout</a>';} else {echo '<a href="login.php">Login</a>';} ?>
-	</h1>
+	
 	</div>
     
     
