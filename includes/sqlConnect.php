@@ -28,16 +28,8 @@ $serverName = "sqlserverass.database.windows.net"; // update me
     
     
     
-   $nrows= mysqli_num_rows($getResults);
-    echo '<br>numRows - <br> ' . $nrows . '<br>';
-if ($nrows > 0) {
-   while($row = mysqli_fetch_array($getResults, MYSQLI_ASSOC)) {
-       echo '<br>all - ' . var_dump($row) . '<br>';
-        foreach($row as $r) {
-            echo 'vardump - ' . var_dump($r) . '<br>';
-            echo '<br>r - ' . $r . '<br>';
-        }
-    }
+while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) {
+      echo '' . $row['id']." . ".$row['username']."<br>";
 }
 
     
