@@ -1,23 +1,18 @@
-<html>
-<head>
-	<link rel="stylesheet" href="styling.css">
-	</head>
+<?php
+$pageTitle = 'Home';
+require('includes/header.php');
+?>
 
 	
 	 
 	
-	<div id="navList">
- <ul id="navlist"> 
- <li id="active"><a href="#" id="current">Home</a></li>
- <li><a href="#">About</a></li>
- <li><a href="#">Contact</a></li>
- <li><a href="#">Services</a></li>
- <li><a href="#">Portfolio</a></li>
- </ul>
- </div>
+
 	
 	
 <?php
+
+
+
 
 
 try {
@@ -42,16 +37,10 @@ try {
 	
 	
 	
-	echo "<br><br>connecting...<br>";
-	
 
-	
-	
-	
-
-	
+	/*
 	require('includes/sqlConnect.php');
-	
+	*/
 	
 	
 	

@@ -19,6 +19,8 @@
 	
 <?php
 
+echo 'v - ' . phpversion();
+
 
 try {
 	

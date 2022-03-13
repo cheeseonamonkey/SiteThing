@@ -2,10 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
   
+  <link rel="stylesheet" href="styling.css">
+
   <?php
-  echo "<title> $pageTitle </title>"; 
+  echo "<h2> Something </h2><br><hr>"; 
   
-  $_GET   = filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
+$_GET   = filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
 $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
 
@@ -13,8 +15,9 @@ $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
   
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    
-    <style>
+ 
+
+	<style>
 
 .link-button {
     background: none;
@@ -29,7 +32,7 @@ $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
       	
 
 body {
-      	background-color: #ECF6FE;
+      	/*background-color: #ECF6FE;*/
 		
       }
 	  
@@ -54,11 +57,11 @@ body {
 	
 	.nav li:hover
 	{
-		background-color:#b3c3f2;
+		/*background-color:#b3c3f2;*/
 	}
 	
 	.nav {
-    	  background-color: #CFD8F3;
+    	  /*background-color: #CFD8F3;*/
    	     width: 50%;
 		 clear: both;
       }
@@ -68,7 +71,7 @@ body {
 		height: 5%;
 		width: 33%;
 		text-align: right;
-		background-color: #CFD8F3;
+		/*background-color: #CFD8F3;*/
 		
 	}
 	
@@ -91,7 +94,7 @@ body {
 	}
 	
 	.title {
-		background-color: #9cafe6;
+		/*background-color: #9cafe6;*/
 		height: 5%;
 		float: left;
       	width: 50%;
@@ -100,6 +103,7 @@ body {
 	
 	.titleWrapper {
 		width: 50%;
+		float: left;
 	}
 	
 	h2 {
@@ -108,30 +112,31 @@ body {
 	}
       
     </style>
+
+
     
   </head>
   
   
       <div class="titleWrapper">
       
-      <h1 class="title"><b>Some Title</b></h1>
+      <h2 class="title"><b><?php echo $pageTitle; ?></b></h2>
     	
-	<h1 class="login">
+	<h2 class="login">
 		<?php if(isset($_SESSION['username'])) {echo '<a href="logout.php">Logout</a>';} else {echo '<a href="login.php">Login</a>';} ?>
 	</h1>
 	</div>
     
     
-    <div class="nav">
-		<hr>
-      <ul>
-		<li><a href="index.php">Home</li>
-        <li><a href="myAccount.php">My account</li>
-		<li><a href="messages.php">Messages</a></li>
-		<li><a href="">Link 4</a></li>
-      </ul>
-	  <hr>
-    </div>
+	<div id="navList">
+ <ul id="navlist">
+ <li id="active"><a href="/" id="current" style="clear:both;">Home</a></li>
+ <li><a href="/copypastes.php">CopyPastes</a></li>
+ <li><a href="#">.</a></li>
+ <li><a href="#">.</a></li>
+ <li><a href="#">.</a></li>
+ </ul>
+ </div>
     
     
 
