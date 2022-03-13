@@ -31,7 +31,11 @@ $serverName = "sqlserverass.database.windows.net"; // update me
    $nrows= mysqli_num_rows($getResults);
 if ($nrows> 0) {
    while($row = mysqli_fetch_array($getResults,MYSQLI_NUM)) {
-        foreach($row as $val) $this->results[] = $val;
+       echo '<br>all - ' . var_dump($row) . '<br>';
+        foreach($row as $r) {
+            echo 'vardump - ' . var_dump($r) . '<br>';
+            echo '<br>r - ' . $r . '<br>';
+        }
     }
 }
 
