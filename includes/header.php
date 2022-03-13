@@ -6,7 +6,7 @@
 
   <?php
   
-  echo '<h2 style="float: left;"> Something </h2>'; 
+  echo '<h2 style="float: left; box-shadow: 2px 2.5px 6px 1.8px rgba(0,0,20,0.2); width: 32%;"> Something </h2>'; 
   
 $_GET   = filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
 $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -76,8 +76,11 @@ body {
 	.login {
 		float: right;
 		height: 5%;
-		width: 33%;
+		width: 18%;
 		text-align: right;
+		margin-right: 38%;
+		box-shadow: 2.5px 3px 6px 2px rgba(0,0,20,0.25);
+		margin-bottom: 10px;
 		/*background-color: #CFD8F3;*/
 		
 	}
