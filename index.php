@@ -58,11 +58,6 @@ try {
 	
 	
 	
-	
-	
-	echo "<br><br>connection errors:<br>" . var_dump(mysqli_error());
-	
-	
 		
 	
 	
