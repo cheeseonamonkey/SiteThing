@@ -22,6 +22,9 @@
 
 try {
 	
+//
+//	mysql syntax:
+//
 //	DEFINE ('DB_USER','vcyswvxapq');
 //	DEFINE ('DB_PASSWORD','FXDUBP1OQ8K8D2X6$');
 //	DEFINE ('DB_HOST','sitething-server.mysql.database.azure.com');
@@ -30,25 +33,13 @@ try {
 //	
 //	$dbc = @ mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME)
 //		or die ('Could not connect to mysql: ' . mysqli_connect_error() );
-//	
+
 
 	
 	
-	echo "this ip: <br> " . $_SERVER['REMOTE_ADDR'] . "<br><br>";
+	//echo "this ip: <br> " . $_SERVER['REMOTE_ADDR'] . "<br><br>";
 
-	echo "path:<br>";
-	echo getcwd() . "<br><br>";
 	
-	echo "files:<br>";
-				//Get a list of file paths using the glob function.
-				$fileList = glob(getcwd());
-	
-
-				echo var_dump($fileList);
-	
-	$fileList = glob("C:");
-	
-	echo var_dump($fileList);
 	
 	
 	echo "<br><br>connecting...<br>";
