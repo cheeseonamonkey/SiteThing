@@ -20,15 +20,24 @@ $serverName = "sqlserverass.database.windows.net"; // update me
     echo ("Reading data from table...<br>");
     if ($getResults == FALSE)
         echo ( '<br><hr>SQL ERRORS - ' . var_dump(sqlsrv_errors()) . "<hr><br>");
-     echo '<br><br>query result var dump: <br><br>' . var_dump(sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) . '<br><br>';
-    echo '<br><br>--- ROW PRINT:<br><br>';
-    $rows = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC);
     
-    foreach($rows as $row)
-    {
-        echo '<br>--- '  . var_dump(row$) .'<br><br><br><br>';
+    
+    echo '<br><br>query result (before fetch) var dump: <br><br>' . var_dump(sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) . '<br><br>';
+    echo '<br><br>--- ROW PRINT:<br><br>';
+    
+    
+    
+    
+   $nrows= mysqli_num_rows($getResults);
+if ($nrows> 0) {
+   while($row = mysqli_fetch_array($getResults,MYSQLI_NUM)) {
+        foreach($row as $val) $this->results[] = $val;
     }
+}
 
+    
+    
+    
     sqlsrv_free_stmt($getResults);
 
 }catch(Exception $e)
