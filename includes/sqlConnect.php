@@ -19,7 +19,7 @@ $serverName = "sqlserverass.database.windows.net"; // update me
    
     echo ("Reading data from table..." . PHP_EOL);
     if ($getResults == FALSE)
-        echo ( '<br><hr>SQL ERRORS - ' . sqlsrv_errors() . "<hr><br>");
+        echo ( '<br><hr>SQL ERRORS - ' . var_dump(sqlsrv_errors()) . "<hr><br>");
      echo '<br>var dump: <br>' . var_dump(sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) . '<br><br>';
     echo '<br><br>--- ROW PRINT:<br><br>';
     while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
