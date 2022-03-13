@@ -29,7 +29,7 @@ $serverName = "sqlserverass.database.windows.net"; // update me
     sqlsrv_free_stmt($getResults);
 
 }catch(Exception $e)
-{
+{ 
         echo "Error - " . $e; 
     
     die(print_r($e));
