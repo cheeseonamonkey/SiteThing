@@ -28,10 +28,15 @@ $serverName = "sqlserverass.database.windows.net"; // update me
     
     
     
+    
+    
 while( $row = sqlsrv_fetch_array( $getResults, SQLSRV_FETCH_ASSOC) ) {
       echo '' . $row['id']." . ".$row['username']."<br>";
+    
+        
 }
 
+    
     
     
     
