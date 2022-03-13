@@ -27,7 +27,7 @@ $serverName = "sqlserverass.database.windows.net"; // update me
     
     
     
-    sqlsrv_fetch_array( $getResults, SQLSRV_FETCH_ASSOC)
+    echo '<br>count - ' . count(sqlsrv_fetch_array( $getResults, SQLSRV_FETCH_ASSOC)) . '<br>';
     
     
 while( $row = sqlsrv_fetch_array( $getResults, SQLSRV_FETCH_ASSOC) ) {
