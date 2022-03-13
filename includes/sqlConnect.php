@@ -22,8 +22,11 @@ $serverName = "sqlserverass.database.windows.net"; // update me
         echo ( '<br><hr>SQL ERRORS - ' . var_dump(sqlsrv_errors()) . "<hr><br>");
      echo '<br><br>query result var dump: <br><br>' . var_dump(sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) . '<br><br>';
     echo '<br><br>--- ROW PRINT:<br><br>';
-    while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
-     echo ( '<br>---' . $row['username'] . " " . $row['password'] . "<br>");
+    $rows = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC);
+    
+    foreach($rows as $row)
+    {
+        echo '<br>--- '  . var_dump(row$) .'<br><br><br><br>';
     }
 
     sqlsrv_free_stmt($getResults);
