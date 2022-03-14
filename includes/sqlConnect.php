@@ -2,7 +2,8 @@
 
 try
 {
-    echo ' <br> <br> --- SQL CONNECTING NOW --- <br><br>';
+
+    echo ' <br><br> --- SQL CONNECTING --- <br><br>';
     
     
 $serverName = "sqlserverass.database.windows.net"; // update me
@@ -13,9 +14,15 @@ $serverName = "sqlserverass.database.windows.net"; // update me
     );
     //Establishes the connection
     $conn = sqlsrv_connect($serverName, $connectionOptions);
+    
+
+    echo '<br> --- SQL CONNECTED! --- <br><br>';
+
+
+
     $tsql= "select * from accounts;";
     echo ("Doing query... <br>");
-    $getResults= sqlsrv_query($conn, $tsql);
+    $getResults = sqlsrv_query($conn, $tsql);
    
     echo ("Reading data from table...<br>");
     if ($getResults == FALSE)
@@ -32,15 +39,14 @@ $serverName = "sqlserverass.database.windows.net"; // update me
     
 while( $row = sqlsrv_fetch_array( $getResults, SQLSRV_FETCH_ASSOC) ) {
       echo '' . $row['id']." . ".$row['username']."<br>";
-    
-        
 }
 
-    
-    
-    
-    
-    sqlsrv_free_stmt($getResults);
+
+
+
+
+
+
 
 }catch(Exception $e)
 { 

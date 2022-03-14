@@ -36,11 +36,12 @@ try {
 
 	
 	
-	
 
 	/*
 	require('includes/sqlConnect.php');
 	*/
+
+	//^ now as a global function (connectSql())
 	
 	
 	

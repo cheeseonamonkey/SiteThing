@@ -4,15 +4,19 @@
   
   <link rel="stylesheet" href="styling.css">
 
-  <?php
-  
-  echo '<h2 style="float: left; box-shadow: 2px 2.5px 6px 1.8px rgba(0,0,20,0.2); width: 32%;"> Something </h2>'; 
-  
-$_GET   = filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
-$_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+	<?php
 
+	//functions
+	include('includes/globalFunctions.php');
 
-  ?>
+  	//static site title
+	echo '<h2 style="float: left; box-shadow: 2px 2.5px 6px 1.8px rgba(0,0,20,0.2); width: 32%;"> SiteThing </h2>'; 
+
+	$_GET   = filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
+	$_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+	
+	?>
 
 
 	<h2 class="login">
@@ -40,7 +44,6 @@ $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
 body {
       	/*background-color: #ECF6FE;*/
-		
       }
 	  
 	  
