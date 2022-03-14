@@ -63,7 +63,11 @@
 
             let endpoint = 'https://imdb-api.com/en/API/Top250Movies/k_89our315';
 
-            let response = await fetch(endpoint);
+            let response = await fetch(endpoint, {
+                Headers: {
+                    "X-RapidAPI-Key": "k_89our315"
+                }
+            });
 
             let moviesJson = await response.json();
 
