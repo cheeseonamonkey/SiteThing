@@ -37,13 +37,106 @@ require('includes/header.php');
 
 </body>
 <script>
+
+
+
+
+
+function getCopyPastes() {
+    
+    let copyPastes = [];
+
+    <?php
+    try
+    {
+        require('includes/sqlConnect.php');
+        $q = 'select * from copypastes;';
+        require('includes/sqlQuery.php');
+
+        echo 'let rowCount = ' . $rowCount . ";\n\n";
+        
+        
+
+
+
+
+
+
+        //each row
+        while( $row = sqlsrv_fetch_array( $result, SQLSRV_FETCH_ASSOC) )
+        {
+             
+            echo 'let id = ' . $row['id'] . ";\n";
+            echo 'let name = "' . $row['name'] . "\";\n";
+            echo 'let content = "' . $row['content'] . "\";\n";
+
+            echo 'let cTime = new Date();' . ";\n";
+            echo 'let desc = "' . $row['desc'] . "\";\n";
+            echo 'let authorIsGuest = ';
+
+            if($row['authorIsGuest'] != null && $row['authorIsGuest'] != "")
+                echo $row['authorIsGuest'] . ";\n";
+            else
+                echo '0' . ";\n";
+            if($row['authorIsAnonymous'] != null && $row['authorIsAnonymous'] != "")
+                echo 'let authorIsAnonymous = ' . $row['authorIsAnonymous'] . ";\n";
+            else
+                echo 'let authorIsAnonymous = 0' . ";\n";
+            if($row['authorId'] != null && $row['authorId'] != "")
+                echo 'let authorId = ' . $row['authorId'] . ";\n";
+            else
+                echo 'let authorId = 0' . ";\n";
+            
+            echo 'let tags = "' . $row['tags'] . "\";\n";
+            
+
+
+            /*
+            ( 'id' => 1,
+             'name' => 'test', 
+             'content' => 'this is content for the first test blah blahh blah',
+             'cTime' => DateTime::__set_state(array( 'date' => '2022-03-14 07:51:17.000000',
+                'timezone_type' => 3,
+                'timezone' => 'Europe/Berlin', )),
+             'desc' => 'this is test 1',
+             'authorIsGuest' => 1,
+             'authorIsAnonymous' => NULL,
+             'authorId' => NULL,
+             'tags' => 'test', )
+
+
+             */
+
+
+            
+        }
+
+
+    }catch (Exception $e)
+    {
+            echo "<br><br>SQL Error - " . $e . '<br><br>'; 
+            
+            //die(print_r($e));
+    }
+    ?>
+
+    
+
+}
+
+    
+
+
+
     class CopyPaste {
-        constructor(id, name, content, cTime, desc, authorId, tags) {
+        constructor(id, name, content, cTime, desc, authorIsGuest, authorIsAnonymous, authorId, tags) {
             this.id = id;
             this.name = name;
             this.content = content;
             this.cTime = cTime;
             this.desc = desc;
+            this.authorIsGuest = authorIsGuest;
+            this.authorIsAnonymous = authorIsAnonymous;
             this.authorId = authorId;
             this.tags = tags;
             
@@ -152,46 +245,10 @@ require('includes/header.php');
 
 
 
-    //test object
-    o0 = new CopyPaste(
-        1,
-        'nam',
-        'this is the content to copy bla;h blah ipsum shit ass fuck blah blah',
-        '10/10/10 10:30pm',
-        'description of copypaste',
-        55, ["tag", "blah"]);
 
+    getCopyPastes();
 
-    //test object
-    o1 = new CopyPaste(
-        4,
-        'alex',
-        'this is the content shit shit shit shit shit ',
-        '3/11/22 9:31am',
-        'description etc.',
-        17, ["things", "wut"]);
-
-
-    //test object
-    o2 = new CopyPaste(
-        1,
-        'nam',
-        'poop asdflkajsekloriasuhsewofihjsdlofisd asdfgawer5349r 90384 u09384u90823u 0  2 039 id ifdcio sds sdfsdf',
-        '12/12/24 12:15pm',
-        'this is a description',
-        92, ["stuff", "wut"]);
-
-
-    //
-    //init
-    //
-    drawCopyPasteRow(o0);
-    drawCopyPasteRow(o1);
-    drawCopyPasteRow(o2);
-
-
-
-    //
+    
 </script>
 
 </html>

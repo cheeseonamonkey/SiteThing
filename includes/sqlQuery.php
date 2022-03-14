@@ -7,24 +7,43 @@ if($q == null || $q == "")
 }
 
 //$q= "select * from accounts;";
-echo ("<br> --- Doing query... <br>");
-$getResults = sqlsrv_query($conn, $q);
 
-echo ("Reading data from table...<br>");
-if ($getResults == FALSE)
-    echo ( '<br><hr>SQL ERRORS - ' . var_dump(sqlsrv_errors()) . "<hr><br>");
+//echo ("<br> --- Doing query... <br>");
+$result = sqlsrv_query($conn, $q);
+
+//echo " --- Reading data from table...<br>";
+
+if ($result == FALSE)
+{
+    echo ( '<br>SQL ERRORS - ' . var_dump(sqlsrv_errors()) . "<br>");
+    $rowCount = sqlsrv_num_rows($result);
+}
+    
+    //echo '<br><br> --- ROW PRINT:<br><br>';
 
 
-//echo '<br><br>query result (before fetch) var dump: <br><br>' . var_dump(sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) . '<br><br>';
-echo '<br><br>--- ROW PRINT:<br><br>';
+
+//
+//debugDump($result);
+//
 
 
 
-echo '<br>count - ' . sqlsrv_num_rows($getResults) . '<br>';
+
+function debugDump($result)
+{
+
+  echo ' --- DEBUG DUMP: <br>';
+  echo '<small>';
+  echo '<br>count - ' . sqlsrv_num_rows($result) . '<br>';
 
 
-while( $row = sqlsrv_fetch_array( $getResults, SQLSRV_FETCH_ASSOC) ) {
-  echo '' . $row['id']." . ".$row['username']."<br>";
+  while( $row = sqlsrv_fetch_array( $result, SQLSRV_FETCH_ASSOC) ) {
+    echo var_export($row) . '<br>';
+  }
+
+  echo '</small>';
+
 }
 
 ?>

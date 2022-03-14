@@ -56,7 +56,7 @@ catch (Exception $e) {
     
     echo "Error - " . $e; 
     
-    die(print_r($e));
+    //die(print_r($e));
 }
 
 

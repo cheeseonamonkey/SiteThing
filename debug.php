@@ -30,9 +30,13 @@ try {
 	echo "this ip: <br> " . $_SERVER['REMOTE_ADDR'] . "<br><br>";
 
 	include('includes/sqlConnect.php');
-    $q = "select * from accounts";
+    $q = "select * from accounts;";
     include('includes/sqlQuery.php');
 	
+
+    while( $row = sqlsrv_fetch_array( $result, SQLSRV_FETCH_ASSOC) ) {
+        echo var_export($row) . '<br>';
+    }
 
 	
 	

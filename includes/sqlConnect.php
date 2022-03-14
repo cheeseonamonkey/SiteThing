@@ -1,9 +1,8 @@
 <?php
 
-try
-{
+$rowCount = 0;
 
-    echo ' <br><br> --- SQL CONNECTING --- <br><br>';
+    //echo ' <br><br> --- SQL CONNECTING --- <br><br>';
     
     
 $serverName = "sqlserverass.database.windows.net"; // update me
@@ -16,7 +15,7 @@ $serverName = "sqlserverass.database.windows.net"; // update me
     $conn = sqlsrv_connect($serverName, $connectionOptions);
     
 
-    echo '<br> --- SQL CONNECTED! --- <br><br>';
+    //echo '<br> --- SQL CONNECTED! --- <br><br>';
 
 
 
@@ -26,12 +25,5 @@ $serverName = "sqlserverass.database.windows.net"; // update me
 
 
 
-
-}catch(Exception $e)
-{ 
-        echo "Error - " . $e; 
-    
-    die(print_r($e));
-}
 
 ?>
