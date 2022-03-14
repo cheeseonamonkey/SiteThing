@@ -1,4 +1,4 @@
-<?php
+<?php 
 $pageTitle = 'Debug stuff';
 require('includes/header.php');
 ?>
@@ -29,7 +29,9 @@ try {
 	
 	echo "this ip: <br> " . $_SERVER['REMOTE_ADDR'] . "<br><br>";
 
-	connectSql();
+	include('includes/sqlConnect.php');
+    $q = "select * from accounts";
+    include('includes/sqlQuery.php');
 	
 
 	
