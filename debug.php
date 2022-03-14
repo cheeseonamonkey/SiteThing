@@ -19,7 +19,12 @@
 	
 <?php
 
-echo 'v - ' . phpversion();
+function ln()
+{
+	echo '<br>';
+}
+
+echo 'php version info - ' . phpversion();
 
 
 try {
