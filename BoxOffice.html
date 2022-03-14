@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="style.css" rel="stylesheet" />
+    <style>
+        td {
+            border: 1px solid black;
+            padding: 1px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <script>
+        //
+        init();
+        //
+
+
+        async function init() {
+
+            let movies = await getTopMovies();
+
+            console.log(movies);
+            console.log(movies.items.length);
+            console.log('');
+            document.body.innerHTML += '<table>';
+            document.body.innerHTML += '<tr><th></th><th></th><th></th><th></th><th></th><th></th></tr>\n';
+
+            for (let i = 0; i < movies.items.length; i++) {
+                let item = movies.items[i];
+                document.body.innerHTML += '<br>';
+                document.body.innerHTML += '<tr>\n';
+                document.body.innerHTML += '#' + item.rank + '\t -  ';
+                document.body.innerHTML += '' + item.title + '\t -  ';
+                document.body.innerHTML += '' + item.year + '\t -  ';
+                document.body.innerHTML += '<br>';
+                document.body.innerHTML += '' + 'link to main image:<br> <small>' + item.image + '\t -  ';
+                document.body.innerHTML += '<br>';
+                document.body.innerHTML += '' + 'crew/actors: ' + item.crew + '\t -  ';
+                document.body.innerHTML += '<br>';
+                document.body.innerHTML += '' + 'imdb rating: ' + item.imDbRating + '\t -  ';
+                document.body.innerHTML += '<br>';
+                document.body.innerHTML += '<br>';
+                document.body.innerHTML += '</tr>\n';
+            }
+
+            document.body.innerHTML += '</table>';
+
+
+        }
+
+
+
+        async function getTopMovies() {
+
+            let endpoint = 'https://imdb-api.com/en/API/Top250Movies/k_89our315';
+
+            let response = await fetch(endpoint);
+
+            let moviesJson = await response.json();
+
+            return moviesJson;
+
+        }
+    </script>
+
+
+
+</body>
+
+</html>
