@@ -61,7 +61,6 @@ function getCopyPastes() {
 
 
 
-
         //each row
         while( $row = sqlsrv_fetch_array( $result, SQLSRV_FETCH_ASSOC) )
         {
@@ -85,7 +84,7 @@ function getCopyPastes() {
             if($row['authorId'] != null && $row['authorId'] != "")
                 echo 'let authorId = ' . $row['authorId'] . ";\n";
             else
-                echo 'let authorId = 0' . ";\n";
+                echo 'let authorId = 0' . ";\n\n";
             
             echo 'let tags = "' . $row['tags'] . "\";\n";
             
