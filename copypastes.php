@@ -67,9 +67,6 @@ function getCopyPastes() {
         while( $row = sqlsrv_fetch_array( $result, SQLSRV_FETCH_ASSOC) )
         {
             
-            
-            
-
             $id = $row['id'];
             $name = $row['name'];
             $content = $row['content'];
@@ -83,9 +80,10 @@ function getCopyPastes() {
             $tags = $row['tags'];
 
 
+            
 
 
-            echo "copyPastes.push(new CopyPaste(\n" .
+            echo "copyPastes.push(new CopyPaste(" .
                 $id . ", '" . $name . "', '" . $content .
                 "', " . '\'$cTime\'' . ", '" . $desc . "', " . $authorIsGuest .
                 ", " . $authorIsAnonymous . ", " . $authorId . ", '" . $tags . "')); \n\n";
@@ -126,7 +124,11 @@ function getCopyPastes() {
 
     
 
-}
+
+
+    return copyPastes;
+
+}//end of grtCopyPastes
 
     
 
@@ -174,23 +176,23 @@ function getCopyPastes() {
 
         let elName = document.createElement('b');
         elName.style = "float: left; padding: 3px; margin-right: 5px;";
-        elName.innerHTML = cpObject.name.toString();
+        elName.innerHTML = cpObject.name;
         rowDiv.appendChild(elName);
 
         let elCTime = document.createElement('i');
         elCTime.style = "float: left; padding: 3px; margin-left: 8px; font-size: 90%;";
-        elCTime.innerHTML = cpObject.cTime.toString();
+        elCTime.innerHTML = cpObject.cTime;
         rowDiv.appendChild(elCTime);
 
         let elAuthor = document.createElement('span');
         elAuthor.style = "float: right; padding: 3px; margin-right: 5px; margin-bottom: 5px;";
-        elAuthor.innerHTML = " - " + cpObject.authorId.toString();;
+        elAuthor.innerHTML = " - " + cpObject.authorId;
         rowDiv.appendChild(elAuthor);
 
 
         let elTags = document.createElement('span');
         elTags.style = "float: left; clear: both; padding: 1px; padding-left: 5px; padding-bottom: 2px; font-size: 95%;";
-        elTags.innerHTML = "Tags:  " + cpObject.tags.toString();;
+        elTags.innerHTML = "Tags:  " + cpObject.tags;
         rowDiv.appendChild(elTags);
 
 
@@ -205,7 +207,7 @@ function getCopyPastes() {
 
         let elDesc = document.createElement('p');
         elDesc.style = "clear: both; font-size: 80%;  margin: 2px; margin-left: 10px; margin-right: 5px; padding: 3px; box-shadow: inset -1px -1px 1px 1px rgba(0, 0, 0, 0.1); width: 90%;";
-        elDesc.innerHTML = cpObject.desc.toString();
+        elDesc.innerHTML = cpObject.desc;
         contentDiv.appendChild(elDesc);
 
 
@@ -216,7 +218,7 @@ function getCopyPastes() {
         txtAreaContent.className = "CopyPasteContent";
         txtAreaContent.addEventListener("click", contentClick);
 
-        txtAreaContent.innerHTML = cpObject.content.toString();
+        txtAreaContent.innerHTML = cpObject.content;
 
         contentDiv.appendChild(txtAreaContent);
 
@@ -232,25 +234,29 @@ function getCopyPastes() {
         navigator.clipboard.writeText(c);
 
     }
-    //
-    /*
-        var obj = {
-            prop: "asdf",
-            bbb: "qwe123123"
-        }
-
-        console.log(obj.prop)
-        console.log(obj.bbb)
-
-        let objJson = JSON.stringify(obj);
-
-        console.log(objJson)
-    */
 
 
 
 
-    getCopyPastes();
+
+
+
+
+
+        //
+        //
+        //init
+
+    let a = getCopyPastes();
+
+    console.log(a.length);
+    console.log('contents:\n' + a.id)
+
+    a.forEach(cp => {
+
+        drawCopyPasteRow(a);
+        
+    });
 
     
 </script>
