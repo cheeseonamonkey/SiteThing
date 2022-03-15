@@ -30,6 +30,7 @@ try {
 	echo "this ip: <br> " . $_SERVER['REMOTE_ADDR'] . "<br><br>";
 
 	include('includes/sqlConnect.php');
+    
     $q = "select * from accounts;";
     include('includes/sqlQuery.php');
 	
