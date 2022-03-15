@@ -46,6 +46,8 @@ function getCopyPastes() {
     
     let copyPastes = [];
 
+    
+
     <?php
     try
     {
@@ -57,37 +59,40 @@ function getCopyPastes() {
         
         
 
-
-
+        
+        echo "\n\n//From database via PHP:\n\n";
 
 
         //each row
         while( $row = sqlsrv_fetch_array( $result, SQLSRV_FETCH_ASSOC) )
         {
-             
-            echo 'let id = ' . $row['id'] . ";\n";
-            echo 'let name = "' . $row['name'] . "\";\n";
-            echo 'let content = "' . $row['content'] . "\";\n";
-
-            echo 'let cTime = new Date();' . ";\n";
-            echo 'let desc = "' . $row['desc'] . "\";\n";
-            echo 'let authorIsGuest = ';
-
-            if($row['authorIsGuest'] != null && $row['authorIsGuest'] != "")
-                echo $row['authorIsGuest'] . ";\n";
-            else
-                echo '0' . ";\n";
-            if($row['authorIsAnonymous'] != null && $row['authorIsAnonymous'] != "")
-                echo 'let authorIsAnonymous = ' . $row['authorIsAnonymous'] . ";\n";
-            else
-                echo 'let authorIsAnonymous = 0' . ";\n";
-            if($row['authorId'] != null && $row['authorId'] != "")
-                echo 'let authorId = ' . $row['authorId'] . ";\n";
-            else
-                echo 'let authorId = 0' . ";\n\n";
             
-            echo 'let tags = "' . $row['tags'] . "\";\n";
             
+            
+
+            $id = $row['id'];
+            $name = $row['name'];
+            $content = $row['content'];
+
+            $cTime = $row['cTime'];
+            $desc = $row['desc'];
+            
+            $authorIsGuest = $row['authorIsGuest'];
+            $authorIsAnonymous = $row['authorIsAnonymous'];
+            $authorId = $row['authorId'];
+            $tags = $row['tags'];
+
+
+
+
+            echo "copyPastes.push(new CopyPaste(\n" .
+                $id . ", '" . $name . "', '" . $content .
+                "', " . '\'$cTime\'' . ", '" . $desc . "', " . $authorIsGuest .
+                ", " . $authorIsAnonymous . ", " . $authorId . ", '" . $tags . "')); \n\n";
+
+            
+
+           
 
 
             /*
