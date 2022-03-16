@@ -169,10 +169,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
 
 
-
-
-
-</body>
 <script>
 
 
@@ -311,69 +307,80 @@ function getCopyPastes() {
 
 
 
-
-
-
         let tempTd;
 
 
 
         let baseDiv = document.body.appendChild(document.createElement('div'));
-        baseDiv.style = "background-color: #30303d; margin: 8px; float: left; padding: 12px; width: 38%; box-shadow: 5px 8px 10px 2px rgba(0,0,45,0.3);";
+        baseDiv.style = "background-color: #30303d; margin: 8px; float: left; padding: 8px; width: 38%; box-shadow: 5px 8px 10px 2px rgba(0,0,45,0.3); ";
 
         let rowDiv = document.createElement('div');
-        rowDiv.style = "float: left; width: 100%;";
+        rowDiv.style = "float: left; width: 100%; box-shadow: inset 1.5px 1.5px 2px 1px rgba(10,0,10,0.15);"; 
         baseDiv.appendChild(rowDiv);
 
 
 
         let elName = document.createElement('b');
-        elName.style = "float: left; padding: 3px; margin-right: 5px;";
+        elName.style = "float: left; padding: 1px; margin-right: 5px; text-decoration: underline; font-size: 120%; font-weight: bold;";
         elName.innerHTML = cpObject.name;
         rowDiv.appendChild(elName);
 
+        //ctime
         let elCTime = document.createElement('i');
-        elCTime.style = "float: left; padding: 3px; margin-left: 8px; font-size: 90%;";
-        elCTime.innerHTML = cpObject.cTime;
+        elCTime.style = "float: left; padding: 1px; margin-left: 30px; font-size: 90%; font-size: smaller; font-weight: lighter; color: #a09e9b;";
+        elCTime.innerHTML =  cpObject.cTime;
         rowDiv.appendChild(elCTime);
-
+/*
         let elAuthor = document.createElement('span');
         elAuthor.style = "float: right; padding: 3px; margin-right: 5px; margin-bottom: 5px;";
         elAuthor.innerHTML = " - " + cpObject.authorId;
         rowDiv.appendChild(elAuthor);
-
+*/
 
         let elTags = document.createElement('span');
-        elTags.style = "float: left; clear: both; padding: 1px; padding-left: 5px; padding-bottom: 2px; font-size: 95%;";
-        elTags.innerHTML = "Tags:  " + cpObject.tags;
+        elTags.style = "float: left; clear: both; padding: 0.5px; padding-left: 5px; padding-bottom: 0px; font-size: 90%; line-height: 90%; margin-left: 15px;";
+        if(cpObject.tags == null  ||  cpObject.tags == "")
+            elTags.innerHTML = "<b>Tags:</b>  " + '<i>(none)</i>';
+        else
+            elTags.innerHTML = "Tags:  " + cpObject.tags;
         rowDiv.appendChild(elTags);
 
 
+        
 
 
 
 
-
+        //bottom div
         let contentDiv = document.createElement('div');
-        contentDiv.style = "clear: both; padding: 8px;  width: 95%; float: left; box-shadow: inset -1px -1.5px 8px 6px rgba(50, 50, 150, 0.05);";
+        contentDiv.style = "clear: both; padding: 9px; padding-bottom: 1px; padding-top: 1px; width: 95%; float: left; box-shadow: inset -1px -1.5px 8px 6px rgba(50, 50, 150, 0.05);";
         baseDiv.appendChild(contentDiv);
 
+        //desc
         let elDesc = document.createElement('p');
-        elDesc.style = "clear: both; font-size: 80%;  margin: 2px; margin-left: 10px; margin-right: 5px; padding: 3px; box-shadow: inset -1px -1px 1px 1px rgba(0, 0, 0, 0.1); width: 90%;";
+        elDesc.style = "clear: both; font-size: 80%;  margin: 2px; margin-left: 10px; margin-right: 5px; margin-top: 0px; padding: 1px; width: 90%;";
         elDesc.innerHTML = cpObject.desc;
         contentDiv.appendChild(elDesc);
 
-
+        //content
         let txtAreaContent = document.createElement('textarea');
         txtAreaContent.readOnly = true;
+        txtAreaContent.style = "display: table; margin-top: -5px; margin-bottom: 2px;";
         txtAreaContent.wrap = "off";
         txtAreaContent.rows = 6;
         txtAreaContent.className = "CopyPasteContent";
         txtAreaContent.addEventListener("click", contentClick);
-
         txtAreaContent.innerHTML = cpObject.content;
-
         contentDiv.appendChild(txtAreaContent);
+
+
+       
+
+        let deleteIcon = contentDiv.appendChild(document.createElement('img'));
+        deleteIcon.style = "height: 30px; width: 30px; margin: 1px; padding: 0px; cursor: pointer; margin-left: 25%; position: relative; top: 7px;";
+        deleteIcon.src = "trash.png";
+        deleteIcon.className = "cpDeleteIcon";
+        
 
 
 
@@ -398,8 +405,21 @@ function getCopyPastes() {
         let c = event.target.innerHTML;
         navigator.clipboard.writeText(c);
 
+        let popups = document.getElementsByClassName('copiedToClipboardPopup');
+
+        for (let i = 0; i < popups.length; i++) {
+            const el = popups[i];
+            
+            el.parentElement.removeChild(el);
+        }
+       
         
-        
+        //copied to clipboard popup - added to event target (content textarea) object
+        let elCopiedPopup = document.createElement('span');
+        elCopiedPopup.style = "color: red; display: table; margin: 0 auto; position: absolute; margin-left: 12.5%; margin-top: 118px; background-color: rgba(50, 0, 0, 0.35); pointer-events : none;";
+        elCopiedPopup.innerHTML = 'Copied to clipboard!';
+        elCopiedPopup.className = "copiedToClipboardPopup";
+        event.target.before(elCopiedPopup);  
         
          
         
@@ -436,5 +456,11 @@ function getCopyPastes() {
 
     
 </script>
+
+
+</body>
+
+
+
 
 </html>
