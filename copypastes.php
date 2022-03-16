@@ -35,6 +35,143 @@ require('includes/header.php');
 
 
 
+
+<style>
+#divNewCopyPaste input.newCopyPasteInputText,
+#divNewCopyPaste textarea.newCopyPasteInputText {
+    width: 85%;
+}
+#divNewCopyPaste form {
+    margin: 10px;
+    width: 100%;
+    padding: 10px;
+    box-shadow: 5px 8px 10px 2px rgba(0,0,45,0.3), -1px -0.5px 6px 1px rgba(0,0,20,0.2);
+    border: .5px solid black;
+    background-color: #34393f;
+}
+#divNewCopyPaste {
+    /* margin: auto; */
+    width: 38%;
+    
+}
+#divNewCopyPaste #ckbAnonymous {
+    margin: 15px;
+    margin-left: 23px;
+}
+#divNewCopyPaste #cpSubmit {
+    margin: 10px;
+    padding: 10px;
+}
+#divNewCopyPaste #cpReset {
+    margin: 10px;
+    padding: 10px;
+}
+#divNewCopyPaste form h4 {
+    margin: 3px;
+    box-shadow: 1px 2px 2px 0.5px rgba(0,0,0,0.17);
+    width: 38%;
+}
+</style>
+
+<div id="divNewCopyPaste">
+<form action="copypastes.php" method="post">
+    <h4>New CopyPaste</h4>
+    <label>Name:</label><br>
+    <input name="cpName" class="newCopyPasteInputText"/><br>
+    <label>Description:</label><br>
+    <input name="cpDesc" class="newCopyPasteInputText"/><br>
+    <label>Tags:</label><br>
+    <input name="cpTags" class="newCopyPasteInputText"/><br>
+    <label>Content:</label><br>
+    <textarea name="cpContent" class="newCopyPasteInputText" rows=6></textarea><br>
+
+    <input name="cpIsAnonymous" id="ckbAnonymous" type="checkbox"/><label for="ckbAnonymous">Anonymous</label><br>
+    <button id="cpReset" type="reset">Clear</button><button name="submit" id="cpSubmit" type="submit">Create</button><br>
+    
+</form>
+ 
+
+
+
+
+<!-- POST NEW COPYPASTE -->
+
+<?php
+
+//form submission:
+
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST')
+{
+        $validated = true;
+		
+
+        $name;
+        $desc;
+        $tags;
+        $content;
+        $isAnonymous; 
+
+        //validation
+		if(empty($_POST['cpName']))
+		{
+			$validated = false;
+		 	echo "<p>You didn't enter a username!";
+		}
+        else
+            $name = $_POST['cpName'];
+
+        if(empty($_POST['cpDesc']))
+			$desc = "";
+        else
+            $desc = $_POST['cpDesc'];
+
+
+        if(empty($_POST['cpTags']))
+			$tags = "";
+		else
+            $tags = $_POST['cpTags'];
+
+
+        if(empty($_POST['cpContent']))
+		{
+			$validated = false;
+		 	echo "<p>You didn't enter any content!";
+		}
+        else
+        {
+            $content = $_POST['cpContent'];
+            $content = str_replace("\r\n", '\n', $content);
+        }
+
+        //validated
+        if($validated)
+        {
+
+            
+            
+            require('includes/sqlConnect.php');
+            $q = "insert into copypastes
+            ([name],[content],[desc],authorIsAnonymous,tags)
+            values('" . $name . "', '". $content ."', '" . $desc . "', 0, '" . $tags . "' )";
+            require('includes/sqlQuery.php');
+
+
+
+
+
+        }
+
+}
+
+
+?>  
+
+
+
+
+
+
 </body>
 <script>
 
@@ -128,6 +265,10 @@ function getCopyPastes() {
 
     return copyPastes;
 
+    <?php
+    include('includes/sqlCleanResources.php');
+    ?>
+
 }//end of grtCopyPastes
 
     
@@ -135,6 +276,17 @@ function getCopyPastes() {
 
 
     class CopyPaste {
+
+        id;
+        name;
+        content;
+        cTime;
+        desc;
+        authorIsGuest;
+        authorIsAnonymous;
+        authorId;
+        tags;
+
         constructor(id, name, content, cTime, desc, authorIsGuest, authorIsAnonymous, authorId, tags) {
             this.id = id;
             this.name = name;
@@ -229,11 +381,34 @@ function getCopyPastes() {
 
 
 
-    function contentClick(event) {
+
+
+    async function sleep(delay) {
+        
+        var start = new Date().getTime();
+        while (new Date().getTime() < start + delay);
+}
+
+
+
+
+    async function contentClick(event) {
+
         let c = event.target.innerHTML;
         navigator.clipboard.writeText(c);
 
-    }
+        
+        
+        
+         
+        
+
+
+}
+        
+        
+
+    
 
 
 
@@ -250,11 +425,11 @@ function getCopyPastes() {
     let a = getCopyPastes();
 
     console.log(a.length);
-    console.log('contents:\n' + a.id)
+    console.log('contents:\n' + JSON.stringify(a));
 
     a.forEach(cp => {
 
-        drawCopyPasteRow(a);
+        drawCopyPasteRow(cp);
         
     });
 

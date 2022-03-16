@@ -27,11 +27,14 @@ try {
 
 	
 	
-	echo "this ip: <br> " . $_SERVER['REMOTE_ADDR'] . "<br><br>";
+
+
+
+	echo "this ip - " . $_SERVER['REMOTE_ADDR'] . "<br><hr><br>";
 
 	include('includes/sqlConnect.php');
     
-    $q = "select * from accounts;";
+    $q = "select * from copypastes;";
     include('includes/sqlQuery.php');
 	
 
@@ -40,6 +43,7 @@ try {
     }
 
 	
+    echo '<br><br><hr><br><br>';
 	
 }
 catch (Exception $e) {
@@ -50,11 +54,11 @@ catch (Exception $e) {
 }
 
 
- 
 
 
+echo "<br><br><hr><br><br><h4>szdxcsdf:</h4><br>";
 
 
 ?>
- 
+
  </html>
