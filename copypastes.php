@@ -37,11 +37,11 @@ require('includes/header.php');
 
 
 <style>
-#divNewCopyPaste input.newCopyPasteInputText,
-#divNewCopyPaste textarea.newCopyPasteInputText {
+.copyPasteOptionsBox input.newCopyPasteInputText,
+.copyPasteOptionsBox textarea.newCopyPasteInputText {
     width: 85%;
 }
-#divNewCopyPaste form, #divCopyPasteOptions form {
+.copyPasteOptionsBox form {
    
     width: 100%;
     padding: 10px;
@@ -50,7 +50,7 @@ require('includes/header.php');
     border: .5px solid black;
     background-color: #34393f;
 }
-#divNewCopyPaste, #divCopyPasteOptions {
+.copyPasteOptionsBox {
     /* margin: auto; */
     width: 38%;
     float: left;
@@ -68,7 +68,7 @@ require('includes/header.php');
     margin: 10px;
     padding: 10px;
 }
-#divNewCopyPaste form h4, #divCopyPasteOptions form h4 {
+.copyPasteOptionsBox h4 {
     margin: 3px;
     box-shadow: inset 1px 2px 2px 0.5px rgba(0,0,0,0.17);
     width: 38%;
@@ -78,7 +78,7 @@ require('includes/header.php');
 }
 </style>
 
-<div id="divNewCopyPaste">
+<div id="divNewCopyPaste" class="copyPasteOptionsBox">
 <form action="copypastes.php" method="post">
     <h4>New CopyPaste</h4>
     <label>Name:</label><br>
@@ -99,7 +99,7 @@ require('includes/header.php');
 
 
 
-<div id="divCopyPasteOptions">
+<div id="divCopyPasteOptions" class="copyPasteOptionsBox">
     <form>
 <h4>Search</h4>
     <label>Name:</label><br>
@@ -108,6 +108,13 @@ require('includes/header.php');
 </div>
 
 
+<div id="divPasteApiKey" class="copyPasteOptionsBox">
+    <form>
+<h4>paste.ee API key</h4>
+    <input type="text" id="searchBar" style="width: 80%;" /><br>
+    <span style="display: none; color: green; background-color: rgba(0,60,0,0.5); padding: 3px; margin-left: 5%;">API key set!</span>
+</form>
+</div>
 
 
 
@@ -418,16 +425,22 @@ function getCopyPastes() {
        
         //icon:
         let deleteIcon = contentDiv.appendChild(document.createElement('img'));
-        deleteIcon.style = "height: 33px; width: 33px; margin: 1px; padding: 0px; cursor: pointer; margin-left: 25%; position: relative; top: 7px;";
+        deleteIcon.style = "height: 33px; width: 33px; margin: 1px; padding: 0px; cursor: pointer; margin-left: 21%; position: relative; top: 7px; box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, .6);";
         deleteIcon.src = "trash.png";
         deleteIcon.classList.add('cpDeleteIcon');
         deleteIcon.classList.add('cpIcon');
         
         let lockIcon = contentDiv.appendChild(document.createElement('img'));
-        lockIcon.style = "height: 33px; width: 33px; margin: 1px; padding: 0px; cursor: pointer; margin-left: 25%; position: relative; top: 7px;";
+        lockIcon.style = "height: 33px; width: 33px; margin: 1px; padding: 0px; cursor: pointer; margin-left: 22%; position: relative; top: 7px; box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, .6);";
         lockIcon.src = "lock.png";
         lockIcon.classList.add('cpLockIcon');
         lockIcon.classList.add('cpIcon');
+
+        let icon3 = contentDiv.appendChild(document.createElement('img'));
+        icon3.style = "height: 33px; width: 33px; margin: 1px; padding: 0px; cursor: pointer; margin-left: 23%; position: relative; top: 7px; box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, .6);";
+        icon3.src = "";
+        icon3.classList.add('cpLockIcon');
+        icon3.classList.add('cpIcon');
 
     }
 
