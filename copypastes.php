@@ -305,7 +305,8 @@ function getCopyPastes() {
         }
     }
 
-    function drawCopyPasteRow(cpObject) {
+    function drawCopyPasteRow(cpObject) 
+    {
 
 
 
