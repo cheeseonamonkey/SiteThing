@@ -49,9 +49,14 @@ require('includes/header.php');
     border: .5px solid black;
     background-color: #34393f;
 }
-#divNewCopyPaste {
+#divNewCopyPaste, #divCopyPasteOptions {
     /* margin: auto; */
     width: 38%;
+    
+}
+#divCopyPasteOptions {
+    background-color: #34393f;
+    content: "asdfasdfasdf";
     
 }
 #divNewCopyPaste #ckbAnonymous {
@@ -89,7 +94,23 @@ require('includes/header.php');
     <button id="cpReset" type="reset">Clear</button><button name="submit" id="cpSubmit" type="submit">Create</button><br>
     
 </form>
- 
+
+<!--
+
+<div id="divCopyPasteOptions">
+
+</div>
+
+
+
+
+<hr style="float: left;clear:both;">
+
+-->
+
+
+
+
 
 
 
@@ -312,7 +333,7 @@ function getCopyPastes() {
 
 
         let baseDiv = document.body.appendChild(document.createElement('div'));
-        baseDiv.style = "background-color: #30303d; margin: 8px; float: left; padding: 8px; width: 38%; box-shadow: 5px 8px 10px 2px rgba(0,0,45,0.3); ";
+        baseDiv.style = "background-color: #30303d; margin: 8px; float: left; padding: 6px; width: 38%; box-shadow: 5px 8px 10px 2px rgba(0,0,45,0.3); ";
 
         let rowDiv = document.createElement('div');
         rowDiv.style = "float: left; width: 100%; box-shadow: inset 1.5px 1.5px 2px 1px rgba(10,0,10,0.15);"; 
