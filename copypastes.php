@@ -41,23 +41,20 @@ require('includes/header.php');
 #divNewCopyPaste textarea.newCopyPasteInputText {
     width: 85%;
 }
-#divNewCopyPaste form {
-    margin: 10px;
+#divNewCopyPaste form, #divCopyPasteOptions form {
+   
     width: 100%;
     padding: 10px;
-    box-shadow: 5px 8px 10px 2px rgba(0,0,45,0.3), -1px -0.5px 6px 1px rgba(0,0,20,0.2);
+    margin: 3px;
+    box-shadow: 5px 8px 10px 2px rgba(0,0,35,0.3), -1px -0.5px 6px 1px rgba(0,0,15,0.2);
     border: .5px solid black;
     background-color: #34393f;
 }
 #divNewCopyPaste, #divCopyPasteOptions {
     /* margin: auto; */
     width: 38%;
-    
-}
-#divCopyPasteOptions {
-    background-color: #34393f;
-    content: "asdfasdfasdf";
-    
+    float: left;
+    margin: 8px;
 }
 #divNewCopyPaste #ckbAnonymous {
     margin: 15px;
@@ -95,22 +92,26 @@ require('includes/header.php');
     
 </form>
 
-<!--
+</div>
+
+
 
 <div id="divCopyPasteOptions">
-
+    <form>
+<h4>Search</h4>
+    <label>Name:</label><br>
+    <input type="text" id="searchBar" style="width: 80%;" /><br>
+</form>
 </div>
 
 
 
 
-<hr style="float: left;clear:both;">
-
--->
 
 
 
-
+<br>
+<hr style="clear: both;">
 
 
 
