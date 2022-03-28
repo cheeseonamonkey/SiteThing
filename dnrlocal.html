@@ -4,32 +4,191 @@
 <head>
     <meta charset="utf-8">
     <title></title>
-    <link href="styling.css" rel="stylesheet" />
+    <style>
+        @import 'https://fonts.googleapis.com/css?family=Open+Sans';
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.75em;
+    font-size: 18px;
+    background-color: #222;
+    color: #aaa;
+}
+
+.simple-container {
+    max-width: 675px;
+    margin: 0 auto;
+    padding-top: 70px;
+    padding-bottom: 20px;
+}
+
+.simple-print {
+    fill: white;
+    stroke: white;
+}
+
+.simple-print svg {
+    height: 100%;
+}
+
+.simple-close {
+    color: white;
+    border-color: white;
+}
+
+.simple-ext-info {
+    border-top: 1px solid #aaa;
+}
+
+p {
+    font-size: 18px;
+}
+
+h1 {
+    font-size: 30px;
+    line-height: 34px;
+}
+
+h2 {
+    font-size: 20px;
+    line-height: 25px;
+}
+
+h3 {
+    font-size: 16px;
+    line-height: 27px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #D8D8D8;
+    border-top: 1px solid #D8D8D8;
+}
+
+hr {
+    height: 1px;
+    background-color: #d8d8d8;
+    border: none;
+    width: 100%;
+    margin: 0px;
+}
+
+a[href] {
+    color: #1e8ad6;
+}
+
+a[href]:hover {
+    color: #3ba0e6;
+}
+
+img {
+    max-width: 100%;
+}
+
+li {
+    line-height: 1.5em;
+}
+
+aside,
+[class *="sidebar"],
+[id *="sidebar"] {
+    max-width: 90%;
+    margin: 0 auto;
+    border: 1px solid lightgrey;
+    padding: 5px 15px;
+}
+
+table {
+    padding: 3px;
+}
+
+th {
+    border: 1px solid white;
+}
+
+td {
+    box-shadow: 1px 1px 1px 1px rgba(150, 150, 150, 0.15);
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+td,
+th {
+    padding: 3px;
+    margin: 6px;
+}
+
+@media (min-width: 1921px) {
+    body {
+        font-size: 18px;
+    }
+}
+        </style>
 </head>
 
 <body>
 
+    <h2>Local DNR list</h2>
+    <hr><br>
+
+    <span>Search:<br></span>
+    <input />
+
+    <br><br>
+
 
 
     <script>
-        document.body.appendChild(document.createElement('div'));
-        document.body.appendChild(document.createElement('table'));
+        let baseDivEl = document.body.appendChild(document.createElement('div'))
+        let tableEl = baseDivEl.appendChild(document.createElement('table'))
+        let thRowEl = tableEl.appendChild(document.createElement('tr'))
+        let th0 = thRowEl.appendChild(document.createElement('th'))
+        th0.innerHTML = "Date added"
+        let th1 = thRowEl.appendChild(document.createElement('th'))
+        th1.innerHTML = "Last Name"
+        let th2 = thRowEl.appendChild(document.createElement('th'))
+        th2.innerHTML = "First Name"
+        let th3 = thRowEl.appendChild(document.createElement('th'))
+        th3.innerHTML = "trespassed"
+        let th4 = thRowEl.appendChild(document.createElement('th'))
+        th4.innerHTML = "Comments"
+
+        printItemRow();
+        printItemRow();
+        printItemRow();
+        printItemRow();
 
 
-        document.cookie = "stuff=asdf,"
 
-        document.cookie;
-        let cook = document.cookie;
-        console.log(cook);
+        function printItemRow() {
 
 
+            let rowEl = tableEl.appendChild(document.createElement('tr'))
+            let td0 = rowEl.appendChild(document.createElement('td'))
+            td0.innerHTML = "Mar 26, 2022"
+            let td1 = rowEl.appendChild(document.createElement('td'))
+            td1.innerHTML = "Huso"
+            let td2 = rowEl.appendChild(document.createElement('td'))
+            td2.innerHTML = "Alexander"
+            let td3 = rowEl.appendChild(document.createElement('td'))
+            let tpCheckbox = td3.appendChild(document.createElement('input'))
+            tpCheckbox.type = "checkbox"
+            tpCheckbox.disabled = true;
+            let td4 = rowEl.appendChild(document.createElement('td'))
+            td4.innerHTML = "Pooped all over the room"
+
+
+        }
 
 
 
+        function getCookie(c_name) {
+            return localStorage.getItem(c_name);
+        }
 
-        function setCookie(key, value) {
-
-
+        function setCookie(c_name, value) {
+            return localStorage.setItem(c_name, value);
         }
     </script>
 </body>
