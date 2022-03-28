@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="styling.css" rel="stylesheet" />
+</head>
+
+<body>
+
+
+
+    <script>
+        document.body.appendChild(document.createElement('div'));
+        document.body.appendChild(document.createElement('table'));
+
+
+        document.cookie = "stuff=asdf,"
+
+        document.cookie;
+        let cook = document.cookie;
+        console.log(cook);
+
+
+
+
+
+
+        function setCookie(key, value) {
+
+
+        }
+    </script>
+</body>
+
+</html>
